@@ -3,7 +3,7 @@ layout: post
 title:  "Server Infrastruktur im Ueberblick"
 date:   2025-06-07
 categories: [Allgemein]
-image: "/blog/images/Server-Infrastruktur-im-Ueberblick/001.svg"
+image: "/images/Server-Infrastruktur-im-Ueberblick/001.svg"
 ---
 
 ![Alternativtext]({{ site.baseurl }}/images/Server-Infrastruktur-im-Ueberblick/002.svg)
