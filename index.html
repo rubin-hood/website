@@ -11,31 +11,180 @@ Diese Website wird mit [Jekyll](https://jekyllrb.com/), einem modernen Static-Si
 
 Viele Menschen finden IT schwer verständlich, da ein Großteil des Wissens komplex oder schwer zugänglich ist. So wie Robin Hood sein Wissen mit allen teilte, möchte Rubin Hood IT-Wissen auf einfache Weise vermitteln, sodass es jeder verstehen kann. Ich möchte Menschen dabei helfen, IT zu lernen, indem ich es klar und kostenlos zugänglich mache – wie ein moderner Robin Hood, aber für technisches Wissen.
 
-<div class="blog-teaser-grid">
-  {% for post in paginator.posts %}
-<a class="blog-card" href="{{ post.url | relative_url }}">
-  <div class="card-img">
-    {% if post.image %}
-      <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
-    {% else %}
-      Bild
+<!-- Suche -->
+<div id="searchbox-container">
+  <input id="searchbox" type="text" placeholder="Suche im Blog...">
+</div>
+<div id="searchinfo"></div>
+<div id="searchresults"></div>
+
+<!-- Standard-Post-Grid & Pagination -->
+<div id="blog-pagination">
+  <div class="blog-teaser-grid">
+    {% for post in paginator.posts %}
+    <a class="blog-card" href="{{ post.url | relative_url }}">
+      <div class="card-img">
+        {% if post.image %}
+          <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
+        {% else %}
+          Bild
+        {% endif %}
+      </div>
+      <div class="card-content">
+        <div class="card-title">{{ post.title }}</div>
+        <div class="card-desc">{{ post.excerpt | strip_html | truncate: 140 }}</div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a class="prev" href="{{ paginator.previous_page_path | prepend: site.baseurl }}">« Zurück</a>
+    {% endif %}
+    <span>Seite {{ paginator.page }} von {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a class="next" href="{{ paginator.next_page_path | prepend: site.baseurl }}">Weiter »</a>
     {% endif %}
   </div>
-  <div class="card-content">
-    <div class="card-title">{{ post.title }}</div>
-    <div class="card-desc">{{ post.excerpt | strip_html | truncate: 140 }}</div>
-  </div>
-</a>
-  {% endfor %}
 </div>
 
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a class="prev" href="{{ paginator.previous_page_path | prepend: site.baseurl }}">« Zurück</a>
-  {% endif %}
-  <span>Seite {{ paginator.page }} von {{ paginator.total_pages }}</span>
-  {% if paginator.next_page %}
-    <a class="next" href="{{ paginator.next_page_path | prepend: site.baseurl }}">Weiter »</a>
-  {% endif %}
-</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let posts = [];
+    fetch('{{ "/search.json" | relative_url }}')
+      .then(response => response.json())
+      .then(function(json){
+        posts = json;
+      });
 
+    const searchbox = document.getElementById('searchbox');
+    const searchresults = document.getElementById('searchresults');
+    const searchinfo = document.getElementById('searchinfo');
+    const blogpagination = document.getElementById('blog-pagination');
+
+    searchbox.addEventListener('input', function(e) {
+      let query = e.target.value.trim();
+      let out = '';
+      let info = '';
+      if (query.length < 3) {
+        searchresults.innerHTML = '';
+        searchinfo.innerHTML = '';
+        blogpagination.style.display = '';
+        return;
+      }
+
+      // Suche im Inhalt und Titel (case-insensitive)
+      let results = posts.filter(post =>
+        post.content.toLowerCase().includes(query.toLowerCase()) ||
+        post.title.toLowerCase().includes(query.toLowerCase())
+      );
+
+      if (results.length) {
+        info = `<div class="search-info">${results.length} Treffer gefunden</div>`;
+        out = results.map(post => {
+          // Datum im deutschen Format, wenn vorhanden
+          let date = '';
+          if (post.date) {
+            const d = new Date(post.date);
+            date = d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+          }
+          // Fundstellen hervorheben
+          let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
+          let title = post.title.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
+
+          let snippet = post.content;
+          let idx = snippet.toLowerCase().indexOf(query.toLowerCase());
+          if (idx > -1) {
+            snippet = snippet.substring(Math.max(0, idx-60), idx+80);
+          } else {
+            snippet = snippet.substring(0, 140);
+          }
+          let excerpt = snippet.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
+
+          return `<div class="search-card">
+            <a href="${post.url}" class="search-title">${title}</a>
+            <div class="search-date">${date}</div>
+            <div class="search-snippet">${excerpt}...</div>
+          </div>`;
+        }).join('');
+      } else {
+        info = `<div class="search-info notfound">Keine Treffer gefunden.</div>`;
+        out = '';
+      }
+
+      blogpagination.style.display = 'none';
+      searchinfo.innerHTML = info;
+      searchresults.innerHTML = out;
+    });
+});
+</script>
+
+<style>
+/* ... 1:1 wie in deinem blog.md ... */
+#searchbox-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.3em;
+  margin-bottom: 1em;
+}
+#searchbox {
+  width: 320px;
+  max-width: 90vw;
+  padding: 0.5em;
+  font-size: 1.1em;
+  margin-bottom: 0.2em;
+  border: 2px solid #009C6C;
+  border-radius: 8px;
+  outline: none;
+  background: #FCFBF7;
+  transition: border-color 0.2s;
+}
+#searchbox:focus {
+  border-color: #AA0600;
+}
+#searchinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 2em;
+  margin-bottom: 0.3em;
+}
+.search-info {
+  color: #009C6C;
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 1.2em;
+}
+.search-info.notfound {
+  color:rgb(92, 92, 92);
+}
+#searchresults {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.search-card {
+  margin-bottom: 2em;
+}
+.search-title {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #009C6C;
+  text-decoration: none;
+  margin-bottom: 0.2em;
+  margin-top: 0.3em;
+}
+.search-date {
+  font-size: 1em;
+  color: #8a8a8a;
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+}
+.search-snippet {
+  font-size: 1.04em;
+  color: #222;
+}
+</style>
