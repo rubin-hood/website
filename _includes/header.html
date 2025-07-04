@@ -1,0 +1,88 @@
+<header class="site-header">
+  <a class="logo" href="{{ "/" | relative_url }}">
+    <img src="{{ '/assets/logo.png' | relative_url }}" alt="Rubin Hood">
+  </a>
+  <nav class="site-nav">
+    {% include navigation.html %}
+  </nav>
+  <div class="social-icons">
+    <a href="https://github.com/rubin-hood" target="_blank" title="GitHub" class="icon-link">
+      <img class="icon-img normal" src="/rubinhood-blog/assets/social/github.png" alt="GitHub">
+      <img class="icon-img hover" src="/rubinhood-blog/assets/social/github2.png" alt="GitHub Hover">
+    </a>
+    <a href="https://bsky.app/profile/rubin-hood.bsky.social" target="_blank" title="Bluesky" class="icon-link">
+      <img class="icon-img normal" src="/rubinhood-blog/assets/social/bluesky.png" alt="Bluesky">
+      <img class="icon-img hover" src="/rubinhood-blog/assets/social/bluesky2.png" alt="Bluesky Hover">
+    </a>
+    <a href="https://medium.com/@rubin-hood" target="_blank" title="Medium" class="icon-link">
+      <img class="icon-img normal" src="/rubinhood-blog/assets/social/medium.png" alt="Medium">
+      <img class="icon-img hover" src="/rubinhood-blog/assets/social/medium2.png" alt="Medium Hover">
+    </a>
+    <a href="https://codepen.io/rubin-hood" target="_blank" title="CodePen" class="icon-link">
+      <img class="icon-img normal" src="/rubinhood-blog/assets/social/codepen.png" alt="CodePen">
+      <img class="icon-img hover" src="/rubinhood-blog/assets/social/codepen2.png" alt="CodePen Hover">
+    </a>
+    <a href="https://www.youtube.com/@Rubin-Hood/videos" target="_blank" title="YouTube" class="icon-link">
+      <img class="icon-img normal" src="/rubinhood-blog/assets/social/youtube.png" alt="YouTube">
+      <img class="icon-img hover" src="/rubinhood-blog/assets/social/youtube2.png" alt="YouTube Hover">
+    </a>
+  </div>
+  <!-- BURGER BUTTON! -->
+  <button class="burger" aria-label="Menü" id="burger-btn"><span></span></button>
+</header>
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-menu-overlay" id="mobile-menu">
+  <nav>
+    {% include navigation.html %}
+  </nav>
+  <div class="social-icons">
+    <a href="https://github.com/rubin-hood" target="_blank" title="GitHub" class="icon-link">
+      <img class="icon-img normal" src="/rubinhood-blog/assets/social/github.png" alt="GitHub">
+      <img class="icon-img hover" src="/rubinhood-blog/assets/social/github2.png" alt="GitHub Hover">
+    </a>
+    <a href="https://bsky.app/profile/rubin-hood.bsky.social" target="_blank" title="Bluesky" class="icon-link">
+      <img class="icon-img normal" src="/rubinhood-blog/assets/social/bluesky.png" alt="Bluesky">
+      <img class="icon-img hover" src="/rubinhood-blog/assets/social/bluesky2.png" alt="Bluesky Hover">
+    </a>
+    <a href="https://medium.com/@rubin-hood" target="_blank" title="Medium" class="icon-link">
+      <img class="icon-img normal" src="/rubinhood-blog/assets/social/medium.png" alt="Medium">
+      <img class="icon-img hover" src="/rubinhood-blog/assets/social/medium2.png" alt="Medium Hover">
+    </a>
+    <a href="https://codepen.io/rubin-hood" target="_blank" title="CodePen" class="icon-link">
+      <img class="icon-img normal" src="/rubinhood-blog/assets/social/codepen.png" alt="CodePen">
+      <img class="icon-img hover" src="/rubinhood-blog/assets/social/codepen2.png" alt="CodePen Hover">
+    </a>
+    <a href="https://www.youtube.com/@Rubin-Hood/videos" target="_blank" title="YouTube" class="icon-link">
+      <img class="icon-img normal" src="/rubinhood-blog/assets/social/youtube.png" alt="YouTube">
+      <img class="icon-img hover" src="/rubinhood-blog/assets/social/youtube2.png" alt="YouTube Hover">
+    </a>
+  </div>
+
+  <div class="footer-links">
+    <a href="{{ site.baseurl }}/impressum">Impressum</a> |
+    <a href="{{ site.baseurl }}/datenschutz">Datenschutz</a>
+  </div>
+
+  <hr class="mobile-divider">
+<div class="mobile-blog-list">
+  {% for post in site.posts %}
+    <a class="blog-card" href="{{ post.url | relative_url }}">
+      <div class="card-img">
+        {% if post.image %}
+          <img src="{{ post.image }}" alt="{{ post.title }}">
+        {% else %}
+          Bild
+        {% endif %}
+      </div>
+      <div class="card-content">
+        <div class="card-title">{{ post.title }}</div>
+        <time class="card-date" datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%d.%m.%Y" }}
+        </time>
+        <div class="card-desc">{{ post.excerpt | strip_html | truncate: 140 }}</div>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+</div>
