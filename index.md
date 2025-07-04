@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Home
-paginate: true
 ---
 
 *Der digitale Wald, in dem Kreativität und Technologie aufeinander treffen.*

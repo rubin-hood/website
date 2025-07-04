@@ -1,5 +1,5 @@
 ---
-date: 27.03.2022
+date: 2022-03-27
 layout: post
 title: IBM FlashSystem 5000
 excerpt: Stell dir vor Deine Datenbankabfragen schleichen dahin, virtuelle Maschinen kämpfen mit der Performance, und deine Storage-Admins jonglieren mehrere Systeme, nur um den Betrieb aufrechtzuerhalten. Kommt dir bekannt vor? Ob wachsendes Start-up oder etabliertes Unternehmen – Speicherprobleme entscheiden oft über digitale Transformation oder Frustration.
