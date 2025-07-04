@@ -93,9 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // ================================
   // 4. Lazy-Loading für Bilder
   // ================================
-  document.querySelectorAll('img:not([loading])').forEach(img => {
-    img.setAttribute('loading', 'lazy');
-  });
+
 
 });
 
