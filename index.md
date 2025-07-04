@@ -29,6 +29,13 @@ Viele Menschen finden IT schwer verständlich, da ein Großteil des Wissens komp
   {% endfor %}
 </div>
 
+<ul>
+  {% for post in site.posts %}
+    <li>{{ post.title }} - {{ post.date }}</li>
+  {% endfor %}
+</ul>
+
+
 <div class="pagination">
   {% if paginator.previous_page %}
     <a class="prev" href="{{ paginator.previous_page_path | prepend: site.baseurl }}">« Zurück</a>
