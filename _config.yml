@@ -14,9 +14,8 @@ kramdown:
 
 highlighter: rouge
 
-paginate: 5         # Anzahl der Posts pro Seite (z.B. 5 Cards pro Seite)
-paginate_path: "/blog/page:num/"
+paginate: 6                # Anzahl der Posts pro Seite (kannst du anpassen)
+paginate_path: "/page:num" # URL-Pfad für weitere Seiten
 
-plugins:
-  - jekyll-paginate
+
 
