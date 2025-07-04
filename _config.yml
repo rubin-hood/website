@@ -1,6 +1,6 @@
 title: Rubin Hood
 description: Minimalistischer Jekyll-Blog
-baseurl: "/rubinhood-blog"
+baseurl: "/website"
 url: ""          # Das ist okay, solange baseurl gesetzt ist!
 permalink: /:year/:month/:day/:title.html
 theme: null
