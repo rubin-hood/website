@@ -299,51 +299,7 @@ tr:nth-child(even) {
 
 /*----------------------------------------*/
 
-.blog-content {
-  flex: 4 1 1200px;
-  padding-left: 2rem;
-  box-sizing: border-box;
-  padding: 2rem 2rem 3rem 0;
-  max-height: none !important;
-  overflow-y: visible !important;
 
-  max-width: 700px;           /* <--- NEU: begrenzt die Breite! */
-  margin: 2.5rem auto;         /* zentriert + Abstand oben/unten */
-  background: transparent;
-
-}
-.blog-content img,
-.blog-content iframe,
-.blog-content video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1.5rem auto;
-  box-sizing: border-box;
-}
-.blog-content table {
-  max-width: 100%;
-  overflow-x: auto;
-  display: block;
-}
-.blog-sidebar,
-.blog-content {
-  overflow-y: auto;
-  max-height: 100vh;
-}
-.blog-sidebar .blog-card {
-  width: 100%;
-  max-width: unset !important;
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  min-width: 220px;
-}
-.blog-sidebar .card-content {
-  flex: 1;
-  min-width: 0;
-}
 
 
 /* =============================================================
