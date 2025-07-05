@@ -215,8 +215,6 @@ main {
   gap: 0rem 1rem;
   margin-bottom: 2rem;
   justify-content: center;
-  margin-top: 0 !important;
-  padding-top: 0 !important;
 }
 .blog-card {
   flex: 1 1 150px;
@@ -536,8 +534,7 @@ body.noscroll { overflow: hidden; }
   align-items: center;
   justify-content: center;
   margin-top: 0.3em;
-  argin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+  margin-bottom:0.3em;
   gap: 0.7em;
 }
 #searchbox {
@@ -597,4 +594,12 @@ body.noscroll { overflow: hidden; }
     gap: 0.5em;
     font-size: 1em;
   }
+}
+
+
+#searchbox-container, .blog-teaser-grid, .blog-teaser-grid .blog-card {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
