@@ -210,4 +210,23 @@ document.addEventListener('DOMContentLoaded', function() {
   margin-bottom: 2rem;
   justify-content: center;
 }
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.1em;
+  margin-top: 1.5em;
+  margin-bottom: 2em;
+  font-size: 1.12em;
+}
+@media (max-width: 600px) {
+  .pagination {
+    flex-direction: column;
+    gap: 0.5em;
+    font-size: 1em;
+  }
+}
+
 </style>
