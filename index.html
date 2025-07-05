@@ -142,10 +142,12 @@ document.addEventListener('DOMContentLoaded', function() {
 /* ... 1:1 wie in deinem blog.md ... */
 #searchbox-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;     /* <- von column auf row ändern */
   align-items: center;
+  justify-content: center; /* optional: zentriert horizontal */
   margin-top: 0.3em;
   margin-bottom: 1em;
+  gap: 0.7em;              /* etwas Abstand zwischen Feld und Button */
 }
 #searchbox {
   width: 320px;
