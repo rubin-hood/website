@@ -595,12 +595,3 @@ body.noscroll { overflow: hidden; }
     font-size: 1em;
   }
 }
-
-
-
-#searchbox-container, .blog-teaser-grid, .blog-teaser-grid .blog-card {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
