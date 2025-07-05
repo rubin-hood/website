@@ -213,7 +213,6 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 0rem 1rem;
-  margin-top: 0 !important;
   margin-bottom: 2rem;
   justify-content: center;
 }
@@ -227,7 +226,7 @@ main {
   padding: 0.75rem;
   min-width: 350px;
   max-width: 900px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
   transition: border-color .2s;
   width: 100%;
   min-height: 0 !important;
