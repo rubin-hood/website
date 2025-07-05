@@ -46,6 +46,29 @@ title: Home
 let posts = [];
 let searchJsonLoaded = false;
 
+function animateBlogCards(parentSelector) {
+  const cards = document.querySelectorAll(parentSelector + ' .blog-card');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, observer) => {
+      const visible = entries.filter(entry => entry.isIntersecting);
+      visible.forEach((entry, i) => {
+        setTimeout(() => {
+          entry.target.classList.add('appear');
+          observer.unobserve(entry.target);
+        }, i * 100);
+      });
+    }, {
+      threshold: 0,
+      rootMargin: '0px'
+    });
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  } else {
+    cards.forEach(card => card.classList.add('appear'));
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   const searchbox = document.getElementById('searchbox');
   const searchbtn = document.getElementById('search-btn');
@@ -53,6 +76,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchinfo = document.getElementById('searchinfo');
   const allposts = document.getElementById('all-posts');
   const pagination = document.querySelector('.pagination');
+
+  // Initiale Blog-Cards animieren
+  animateBlogCards('#all-posts');
 
   function loadAndSearch() {
     if (!searchJsonLoaded) {
@@ -124,6 +150,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if(pagination) pagination.style.display = 'none';
     searchinfo.innerHTML = info;
     searchresults.innerHTML = out;
+
+    // NEU: Such-Karten animieren
+    animateBlogCards('#searchresults');
   }
 
   searchbtn.addEventListener('click', loadAndSearch);
