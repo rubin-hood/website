@@ -213,6 +213,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 0rem 1rem;
+  margin-top: 0 !important;
   margin-bottom: 2rem;
   justify-content: center;
 }
