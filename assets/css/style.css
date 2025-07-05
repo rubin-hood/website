@@ -240,6 +240,9 @@ main {
     scale 0.25s;
   will-change: opacity, transform, scale;
 }
+.blog-teaser-grid .blog-card:first-child {
+    margin-top: 0 !important;
+}
 .blog-card.appear {
   opacity: 1;
   transform: translateY(0);
