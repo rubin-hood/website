@@ -8,4 +8,20 @@ layout: default
     {{ page.date | date: "%d.%m.%Y" }}
   </time>
   {{ content }}
+  <section class="blog-content">
+  <h1>{{ page.title }}</h1>
+  <time class="card-date" datetime="{{ page.date | date_to_xmlschema }}">
+    {{ page.date | date: "%d.%m.%Y" }}
+  </time>
+  {{ content }}
+
+  <nav class="post-nav">
+    {% if page.previous %}
+      <a class="post-prev" href="{{ page.previous.url | relative_url }}">« {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next %}
+      <a class="post-next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} »</a>
+    {% endif %}
+  </nav>
+</section>
 </section>
