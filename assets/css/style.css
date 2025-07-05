@@ -442,6 +442,7 @@ footer {
   .mobile-menu-overlay.open { display: flex; }
 
   .post-nav-grid .blog-card {
+    flex-direction: column; /* JETZT: Bild oben, Text unten */
     padding: 0.15rem !important;
     font-size: 0.98rem;
   }
