@@ -145,8 +145,6 @@ main {
   box-sizing: border-box;
   background: #FCFBF7;
   border-radius: 7px;
-  display: flex;
-  align-items: flex-start;
   padding: 0.75rem;
   min-width: 350px;
   max-width: 900px;
@@ -157,45 +155,6 @@ main {
   height: auto !important;
 
 }
-
-/* Post-Navigation Cards IMMER spaltenweise, auch auf Desktop */
-.post-nav-grid .blog-card {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: stretch !important;
-  max-width: 350px;
-  min-width: 0;
-  margin-bottom: 0;
-  padding: 1.2rem 1rem 1.3rem 1rem;
-  box-sizing: border-box;
-  background: #FCFBF7;
-  border-radius: 7px;
-  border: 1px solid #eee;
-}
-
-/* Bild immer oben und zentriert */
-.post-nav-grid .card-img {
-  margin: 0 auto 0.7rem auto !important;
-  max-width: 160px !important;
-  width: 100% !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-.post-nav-grid .card-img img {
-  width: 100% !important;
-  max-width: 160px !important;
-  height: auto !important;
-  border-radius: 4px !important;
-  display: block !important;
-}
-
-/* Inhalt */
-.post-nav-grid .card-content {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
 
 
 /*---------------------------------------------------*/
@@ -673,6 +632,9 @@ body.noscroll { overflow: hidden; }
   min-width: 0;
   margin-bottom: 0;
   max-width: unset;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
 }
 
 /* Tablet & kleiner: einspaltig */
