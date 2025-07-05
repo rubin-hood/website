@@ -620,25 +620,28 @@ body.noscroll { overflow: hidden; }
 .post-nav-grid {
   display: flex;
   gap: 1rem;
-  margin: 3.5rem 0 1.7rem 0;
+  margin: 3.5rem auto 1.7rem auto;   /* auto zentriert */
   justify-content: center;
   align-items: stretch;
   flex-wrap: wrap;
+  max-width: 700px;    /* <-- Setze hier die Breite wie Blog-Content */
+  width: 100%;
 }
 .post-nav-grid .blog-card {
-  max-width: 450px;
-  min-width: 200px;
-  flex: 1 1 320px;
+  flex: 1 1 0;        /* Beide Karten gleich breit */
+  min-width: 0;       /* Damit flex funktioniert */
   margin-bottom: 0;
+  max-width: unset;   /* Entferne vorheriges max-width */
 }
 @media (max-width: 900px) {
   .post-nav-grid {
     flex-direction: column;
     gap: 1.2rem;
     align-items: center;
+    max-width: 95vw;
   }
   .post-nav-grid .blog-card {
-    max-width: 95vw;
-    width: 95vw;
+    width: 100%;
   }
 }
+
