@@ -318,16 +318,17 @@ tr:nth-child(even) {
 /*----------------------------------------*/
 
 .blog-content {
+  flex: 4 1 1200px;
+  padding-left: 2rem;
+  box-sizing: border-box;
+  padding: 2rem 2rem 3rem 0;
+  max-height: none !important;
+  overflow-y: visible !important;
+
   max-width: 720px;           /* <--- NEU: begrenzt die Breite! */
   margin: 2.5rem auto;         /* zentriert + Abstand oben/unten */
-  padding: 2rem 2rem 3rem 2rem; /* ggf. nach Geschmack */
   background: transparent;
-  box-sizing: border-box;
-  /* die Zeilen unten kannst du i.d.R. löschen/ersetzen: */
-  /* flex: 4 1 1200px; */
-  /* padding-left: 2rem; */
-  /* max-height: none !important; */
-  /* overflow-y: visible !important; */
+
 }
 .blog-content img,
 .blog-content iframe,
