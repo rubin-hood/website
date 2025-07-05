@@ -514,13 +514,16 @@ body.noscroll { overflow: hidden; }
 }
 @media (max-width: 900px) {
   .post-nav-grid {
-    flex-direction: column;
+    flex-direction: column !important;
     gap: 1.2rem;
     align-items: center;
     max-width: 95vw;
   }
   .post-nav-grid .blog-card {
-    width: 100%;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    margin-bottom: 0.6rem;
   }
 }
 
