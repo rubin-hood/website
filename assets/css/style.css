@@ -435,6 +435,14 @@ footer {
     padding-left: 0;
     padding-right: 0;
   }
+
+  .post-nav-grid .blog-card,
+  .blog-card {
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+
 }
 
 @media (max-width: 600px) {
@@ -447,12 +455,11 @@ footer {
   .mobile-menu-overlay { display: none; }
   .mobile-menu-overlay.open { display: flex; }
 
-  .post-nav-grid .blog-card,
-  .blog-card {
-    min-width: 0 !important;
-    max-width: 100vw !important;
-    width: 100% !important;
+  .post-nav-grid .blog-card {
+    padding: 0.15rem !important;
+    font-size: 0.98rem;
   }
+
 }
 
 /* ===============================================================
