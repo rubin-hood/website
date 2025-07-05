@@ -565,15 +565,12 @@ body.noscroll { overflow: hidden; }
 }
 .search-info.notfound { color:rgb(92, 92, 92); }
 #searchresults {
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  display: block !important;
   width: 100%;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0rem 1rem;
-  margin-bottom: 2rem;
-  justify-content: center;
+  max-width: none;
 }
 
 /* ================================================================
