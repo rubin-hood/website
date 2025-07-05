@@ -9,14 +9,11 @@ title: Home
   <button id="search-btn">Suchen</button>
 </div>
 <div id="searchinfo"></div>
-<div id="searchresults"></div>
-<div id="all-posts" class="blog-grid blog-grid-single">
-  <!-- ...Post-Loop wie gehabt... -->
-</div>
+<div id="searchresults" class="blog-teaser-grid"></div>
 
 <!-- Standard-Post-Grid & Pagination -->
 <div id="blog-pagination">
-  <div class="blog-teaser-grid">
+  <div class="blog-teaser-grid" id="all-posts">
     {% for post in paginator.posts %}
     <a class="blog-card" href="{{ post.url | relative_url }}">
       <div class="card-img">
@@ -49,19 +46,13 @@ title: Home
 let posts = [];
 let searchJsonLoaded = false;
 
-function doSearch(query) {
-  let out = '';
-  let info = '';
-  // ... gleiche Logik wie vorher ...
-  // siehe dein bisheriges Suchscript
-}
-
 document.addEventListener('DOMContentLoaded', function() {
   const searchbox = document.getElementById('searchbox');
   const searchbtn = document.getElementById('search-btn');
   const searchresults = document.getElementById('searchresults');
   const searchinfo = document.getElementById('searchinfo');
   const allposts = document.getElementById('all-posts');
+  const pagination = document.querySelector('.pagination');
 
   function loadAndSearch() {
     if (!searchJsonLoaded) {
@@ -70,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(function(json){
           posts = json;
           searchJsonLoaded = true;
-          performSearch(); // Suche nach dem Laden starten
+          performSearch();
         });
     } else {
       performSearch();
@@ -83,28 +74,27 @@ document.addEventListener('DOMContentLoaded', function() {
       searchresults.innerHTML = '';
       searchinfo.innerHTML = '';
       allposts.style.display = '';
+      if(pagination) pagination.style.display = '';
       return;
     }
-    // ...hier die übliche Such-Logik mit posts und Ausgeben der Ergebnisse...
     let results = posts.filter(post =>
       post.content.toLowerCase().includes(query.toLowerCase()) ||
       post.title.toLowerCase().includes(query.toLowerCase())
     );
-
     let out = '';
     let info = '';
     if (results.length) {
       info = `<div class="search-info">${results.length} Treffer gefunden</div>`;
       out = results.map(post => {
-        // Datum und Hervorhebung, wie gehabt...
+        // Datum
         let date = '';
         if (post.date) {
           const d = new Date(post.date);
-          date = d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+          date = `<time class="card-date">${d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' })}</time>`;
         }
+        // Highlight
         let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
         let title = post.title.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
-
         let snippet = post.content;
         let idx = snippet.toLowerCase().indexOf(query.toLowerCase());
         if (idx > -1) {
@@ -113,23 +103,29 @@ document.addEventListener('DOMContentLoaded', function() {
           snippet = snippet.substring(0, 140);
         }
         let excerpt = snippet.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
-
-        return `<div class="search-card">
-          <a href="${post.url}" class="search-title">${title}</a>
-          <div class="search-date">${date}</div>
-          <div class="search-snippet">${excerpt}...</div>
-        </div>`;
+        return `
+        <a class="blog-card" href="${post.url}">
+          <div class="card-img">
+            ${post.image ? `<img src="${post.image}" alt="${post.title}" loading="lazy">` : 'Bild'}
+          </div>
+          <div class="card-content">
+            <div class="card-title">${title}</div>
+            ${date}
+            <div class="card-desc">${excerpt}</div>
+          </div>
+        </a>
+        `;
       }).join('');
     } else {
       info = `<div class="search-info notfound">Keine Treffer gefunden.</div>`;
       out = '';
     }
     allposts.style.display = 'none';
+    if(pagination) pagination.style.display = 'none';
     searchinfo.innerHTML = info;
     searchresults.innerHTML = out;
   }
 
-  // Suche erst starten, wenn Button gedrückt oder Enter im Feld
   searchbtn.addEventListener('click', loadAndSearch);
   searchbox.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') loadAndSearch();
@@ -137,17 +133,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
 <style>
-/* ... 1:1 wie in deinem blog.md ... */
 #searchbox-container {
   display: flex;
-  flex-direction: row;     /* <- von column auf row ändern */
+  flex-direction: row;
   align-items: center;
-  justify-content: center; /* optional: zentriert horizontal */
+  justify-content: center;
   margin-top: 0.3em;
   margin-bottom: 1em;
-  gap: 0.7em;              /* etwas Abstand zwischen Feld und Button */
+  gap: 0.7em;
 }
 #searchbox {
   width: 320px;
@@ -161,9 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
   background: #FCFBF7;
   transition: border-color 0.2s;
 }
-#searchbox:focus {
-  border-color: #AA0600;
-}
+#searchbox:focus { border-color: #AA0600; }
 #searchinfo {
   display: flex;
   flex-direction: column;
@@ -177,34 +169,16 @@ document.addEventListener('DOMContentLoaded', function() {
   text-align: center;
   margin-bottom: 1.2em;
 }
-.search-info.notfound {
-  color:rgb(92, 92, 92);
-}
+.search-info.notfound { color:rgb(92, 92, 92); }
 #searchresults {
-  max-width: 600px;
+  width: 100%;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
-}
-.search-card {
-  margin-bottom: 2em;
-}
-.search-title {
-  display: block;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #009C6C;
-  text-decoration: none;
-  margin-bottom: 0.2em;
-  margin-top: 0.3em;
-}
-.search-date {
-  font-size: 1em;
-  color: #8a8a8a;
-  margin-bottom: 0.2em;
-  margin-top: 0.2em;
-}
-.search-snippet {
-  font-size: 1.04em;
-  color: #222;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0rem 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
 }
 </style>
