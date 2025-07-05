@@ -242,7 +242,7 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.blog-sidebar .blog-card.active .card-title {
+.blog-card.active .card-title {
   color: #AA0600 !important;
   font-weight: bold;
 }
@@ -356,7 +356,6 @@ footer {
     align-items: center;
   }
   .blog-layout { flex-direction: column; }
-  .blog-sidebar { display: none; }
   .blog-content { width: 100%; }
   .site-nav, .site-header .social-icons { display: none; }
   .burger { display: block !important; }
@@ -414,8 +413,7 @@ footer {
     height: auto;
     overflow: visible;
   }
-  .blog-content,
-  .blog-sidebar {
+  .blog-content {
     max-height: none;
     overflow-y: visible;
     padding-left: 0;
