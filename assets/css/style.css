@@ -325,7 +325,7 @@ tr:nth-child(even) {
   max-height: none !important;
   overflow-y: visible !important;
 
-  max-width: 800px;           /* <--- NEU: begrenzt die Breite! */
+  max-width: 900px;           /* <--- NEU: begrenzt die Breite! */
   margin: 2.5rem auto;         /* zentriert + Abstand oben/unten */
   background: transparent;
 
