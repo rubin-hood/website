@@ -626,8 +626,8 @@ body.noscroll { overflow: hidden; }
   flex-wrap: wrap;
 }
 .post-nav-grid .blog-card {
-  max-width: 900px;
-  min-width: 340px;
+  max-width: 350px;
+  min-width: 350px;
 
 
 
