@@ -17,24 +17,6 @@ layout: default
 
 {% if page.previous or page.next %}
   <div class="post-nav-grid">
-    {% if page.previous %}
-      <a class="blog-card" href="{{ page.previous.url | relative_url }}">
-        <div class="card-img">
-          {% if page.previous.image %}
-            <img src="{{ page.previous.image }}" alt="{{ page.previous.title }}" loading="lazy">
-          {% else %}
-            Bild
-          {% endif %}
-        </div>
-        <div class="card-content">
-          <div class="card-title">{{ page.previous.title }}</div>
-          <time class="card-date" datetime="{{ page.previous.date | date_to_xmlschema }}">
-            {{ page.previous.date | date: "%d.%m.%Y" }}
-          </time>
-          <div class="card-desc">{{ page.previous.excerpt | strip_html | truncate: 140 }}</div>
-        </div>
-      </a>
-    {% endif %}
     {% if page.next %}
       <a class="blog-card" href="{{ page.next.url | relative_url }}">
         <div class="card-img">
@@ -53,8 +35,27 @@ layout: default
         </div>
       </a>
     {% endif %}
+    {% if page.previous %}
+      <a class="blog-card" href="{{ page.previous.url | relative_url }}">
+        <div class="card-img">
+          {% if page.previous.image %}
+            <img src="{{ page.previous.image }}" alt="{{ page.previous.title }}" loading="lazy">
+          {% else %}
+            Bild
+          {% endif %}
+        </div>
+        <div class="card-content">
+          <div class="card-title">{{ page.previous.title }}</div>
+          <time class="card-date" datetime="{{ page.previous.date | date_to_xmlschema }}">
+            {{ page.previous.date | date: "%d.%m.%Y" }}
+          </time>
+          <div class="card-desc">{{ page.previous.excerpt | strip_html | truncate: 140 }}</div>
+        </div>
+      </a>
+    {% endif %}
   </div>
 {% endif %}
+
 
 
 </section>
