@@ -6,9 +6,13 @@ title: Home
 <!-- Suche -->
 <div id="searchbox-container">
   <input id="searchbox" type="text" placeholder="Suche im Blog...">
+  <button id="search-btn">Suchen</button>
 </div>
 <div id="searchinfo"></div>
 <div id="searchresults"></div>
+<div id="all-posts" class="blog-grid blog-grid-single">
+  <!-- ...Post-Loop wie gehabt... -->
+</div>
 
 <!-- Standard-Post-Grid & Pagination -->
 <div id="blog-pagination">
@@ -42,75 +46,97 @@ title: Home
 </div>
 
 <script>
+let posts = [];
+let searchJsonLoaded = false;
+
+function doSearch(query) {
+  let out = '';
+  let info = '';
+  // ... gleiche Logik wie vorher ...
+  // siehe dein bisheriges Suchscript
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    let posts = [];
-    fetch('{{ "/search.json" | relative_url }}')
-      .then(response => response.json())
-      .then(function(json){
-        posts = json;
-      });
+  const searchbox = document.getElementById('searchbox');
+  const searchbtn = document.getElementById('search-btn');
+  const searchresults = document.getElementById('searchresults');
+  const searchinfo = document.getElementById('searchinfo');
+  const allposts = document.getElementById('all-posts');
 
-    const searchbox = document.getElementById('searchbox');
-    const searchresults = document.getElementById('searchresults');
-    const searchinfo = document.getElementById('searchinfo');
-    const blogpagination = document.getElementById('blog-pagination');
+  function loadAndSearch() {
+    if (!searchJsonLoaded) {
+      fetch('{{ "/search.json" | relative_url }}')
+        .then(response => response.json())
+        .then(function(json){
+          posts = json;
+          searchJsonLoaded = true;
+          performSearch(); // Suche nach dem Laden starten
+        });
+    } else {
+      performSearch();
+    }
+  }
 
-    searchbox.addEventListener('input', function(e) {
-      let query = e.target.value.trim();
-      let out = '';
-      let info = '';
-      if (query.length < 3) {
-        searchresults.innerHTML = '';
-        searchinfo.innerHTML = '';
-        blogpagination.style.display = '';
-        return;
-      }
+  function performSearch() {
+    let query = searchbox.value.trim();
+    if (query.length < 3) {
+      searchresults.innerHTML = '';
+      searchinfo.innerHTML = '';
+      allposts.style.display = '';
+      return;
+    }
+    // ...hier die übliche Such-Logik mit posts und Ausgeben der Ergebnisse...
+    let results = posts.filter(post =>
+      post.content.toLowerCase().includes(query.toLowerCase()) ||
+      post.title.toLowerCase().includes(query.toLowerCase())
+    );
 
-      // Suche im Inhalt und Titel (case-insensitive)
-      let results = posts.filter(post =>
-        post.content.toLowerCase().includes(query.toLowerCase()) ||
-        post.title.toLowerCase().includes(query.toLowerCase())
-      );
+    let out = '';
+    let info = '';
+    if (results.length) {
+      info = `<div class="search-info">${results.length} Treffer gefunden</div>`;
+      out = results.map(post => {
+        // Datum und Hervorhebung, wie gehabt...
+        let date = '';
+        if (post.date) {
+          const d = new Date(post.date);
+          date = d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+        }
+        let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
+        let title = post.title.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
 
-      if (results.length) {
-        info = `<div class="search-info">${results.length} Treffer gefunden</div>`;
-        out = results.map(post => {
-          // Datum im deutschen Format, wenn vorhanden
-          let date = '';
-          if (post.date) {
-            const d = new Date(post.date);
-            date = d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
-          }
-          // Fundstellen hervorheben
-          let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
-          let title = post.title.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
+        let snippet = post.content;
+        let idx = snippet.toLowerCase().indexOf(query.toLowerCase());
+        if (idx > -1) {
+          snippet = snippet.substring(Math.max(0, idx-60), idx+80);
+        } else {
+          snippet = snippet.substring(0, 140);
+        }
+        let excerpt = snippet.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
 
-          let snippet = post.content;
-          let idx = snippet.toLowerCase().indexOf(query.toLowerCase());
-          if (idx > -1) {
-            snippet = snippet.substring(Math.max(0, idx-60), idx+80);
-          } else {
-            snippet = snippet.substring(0, 140);
-          }
-          let excerpt = snippet.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
+        return `<div class="search-card">
+          <a href="${post.url}" class="search-title">${title}</a>
+          <div class="search-date">${date}</div>
+          <div class="search-snippet">${excerpt}...</div>
+        </div>`;
+      }).join('');
+    } else {
+      info = `<div class="search-info notfound">Keine Treffer gefunden.</div>`;
+      out = '';
+    }
+    allposts.style.display = 'none';
+    searchinfo.innerHTML = info;
+    searchresults.innerHTML = out;
+  }
 
-          return `<div class="search-card">
-            <a href="${post.url}" class="search-title">${title}</a>
-            <div class="search-date">${date}</div>
-            <div class="search-snippet">${excerpt}...</div>
-          </div>`;
-        }).join('');
-      } else {
-        info = `<div class="search-info notfound">Keine Treffer gefunden.</div>`;
-        out = '';
-      }
-
-      blogpagination.style.display = 'none';
-      searchinfo.innerHTML = info;
-      searchresults.innerHTML = out;
-    });
+  // Suche erst starten, wenn Button gedrückt oder Enter im Feld
+  searchbtn.addEventListener('click', loadAndSearch);
+  searchbox.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') loadAndSearch();
+  });
 });
 </script>
+
 
 <style>
 /* ... 1:1 wie in deinem blog.md ... */
