@@ -664,3 +664,42 @@ body.noscroll { overflow: hidden; }
     width: 99vw;                         /* Bild nimmt fast ganze Breite ein */
   }
 }
+
+
+
+ /* ================================================================
+    Blog.html
+    ================================================================ */
+
+  .blog-list {
+  max-width: 700px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.3rem; /* Mehr Abstand zwischen Posts */
+}
+.blog-list-item {
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid #ddd;
+}
+.blog-list-title {
+  font-size: 1.3em;
+  color: #009C6C;
+  font-weight: bold;        /* Fetter Titel */
+  text-decoration: none;
+  display: block;           /* Macht den Abstand nach unten besser */
+  margin-bottom: 0.3em;     /* Abstand nach unten zum Datum */
+}
+.blog-list-title:hover {
+  color: #AA0600;
+  text-decoration: underline;
+}
+.blog-list-date {
+  color: #999;
+  font-size: 0.98em;
+  margin-bottom: 0.25em;
+}
+.blog-list-excerpt {
+  color: #444;
+  margin-top: 0.1em;
+}
