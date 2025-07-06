@@ -528,53 +528,72 @@ body.noscroll { overflow: hidden; }
 /* ================================================================
    Suchfeld / Searchbox & Suchergebnisse
    ================================================================ */
+
+/* Container für Suchfeld und Button */
 #searchbox-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0.3em;
-  margin-bottom:0.2em;
-  gap: 0.7em;
+  display: flex;                   /* Flexbox-Layout für horizontale Anordnung */
+  flex-direction: row;             /* Elemente nebeneinander anordnen */
+  align-items: center;             /* Vertikal zentrieren */
+  justify-content: center;         /* Horizontal zentrieren */
+  margin-top: 0.3em;               /* Abstand nach oben */
+  margin-bottom: 0.2em;            /* Abstand nach unten */
+  gap: 0.7em;                      /* Abstand zwischen Suchfeld und Button */
 }
+
+/* Suchfeld-Eingabe */
 #searchbox {
-  width: 320px;
-  max-width: 90vw;
-  padding: 0.5em;
-  font-size: 1.1em;
-  margin-bottom: 0.2em;
-  border: 2px solid #009C6C;
-  border-radius: 8px;
-  outline: none;
-  background: #FCFBF7;
-  transition: border-color 0.2s;
+  width: 320px;                    /* Feste Breite */
+  max-width: 90vw;                 /* Maximal 90% der Viewport-Breite */
+  padding: 0.5em;                  /* Innenabstand */
+  font-size: 1.1em;                /* Schriftgröße */
+  margin-bottom: 0.2em;            /* Abstand nach unten */
+  border: 2px solid #009C6C;       /* Rahmen */
+  border-radius: 8px;              /* Abgerundete Ecken */
+  outline: none;                   /* Kein Standard-Umrandung bei Fokus */
+  background: #FCFBF7;             /* Hintergrundfarbe */
+  transition: border-color 0.2s;   /* Übergang für Rahmenfarbe beim Fokus */
 }
-#searchbox:focus { border-color: #AA0600; }
+
+/* Rahmenfarbe beim Fokus auf Suchfeld */
+#searchbox:focus { 
+  border-color: #AA0600;           /* Rahmenfarbe bei Fokus */
+}
+
+/* Container für Such-Info (z.B. "16 Treffer gefunden") */
 #searchinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 1em;
-  margin-bottom: 0.3em;
+  display: flex;                   /* Flexbox-Layout */
+  flex-direction: column;          /* Elemente untereinander */
+  align-items: center;             /* Zentrieren */
+  min-height: 1em;                 /* Minimale Höhe */
+  margin-bottom: 0.3em;            /* Abstand nach unten zum Grid */
 }
+
+/* Stil für Such-Info-Text (Anzahl Treffer) */
 .search-info {
-  color: #009C6C;
-  font-size: 1em;
-  text-align: center;
-  margin-bottom: 0.2em;
+  color: #009C6C;                  /* Schriftfarbe grün */
+  font-size: 1em;                  /* Schriftgröße */
+  text-align: center;              /* Zentrierter Text */
+  margin-bottom: 0.2em;            /* Abstand nach unten */
 }
-.search-info.notfound { color:rgb(92, 92, 92); }
+
+/* Stil für "Keine Treffer gefunden" */
+.search-info.notfound { 
+  color: rgb(92, 92, 92);          /* Graue Schriftfarbe */
+}
+
+/* Grid für Suchergebnisse */
 #searchresults {
-  width: 100%;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0rem 1rem;
-  margin-bottom: 0.2rem;
-  justify-content: center;
+  width: 100%;                     /* Volle Breite */
+  max-width: 1400px;               /* Maximal 1400px breit */
+  margin-left: auto;               /* Zentrieren */
+  margin-right: auto;              /* Zentrieren */
+  display: flex;                   /* Flexbox-Layout für Karten */
+  flex-wrap: wrap;                 /* Karten umbrechen bei Bedarf */
+  gap: 0rem 1rem;                  /* Horizontaler Abstand zwischen Karten */
+  margin-bottom: 0.2rem;           /* Abstand nach unten */
+  justify-content: center;         /* Karten zentrieren */
 }
+
 
 /* ================================================================
    Pagination / Seiten-Navigation
@@ -590,7 +609,7 @@ body.noscroll { overflow: hidden; }
 }
 @media (max-width: 600px) {
   .pagination {
-    flex-direction: column;
+    /*flex-direction: column;*/
     gap: 0.5em;
     font-size: 1em;
   }
