@@ -18,21 +18,9 @@ title: Home
 </section>
 
 <!-- Suche -->
-<div id="searchbox-container" style="position: relative; display: flex; justify-content: center;">
+<div id="searchbox-container">
   <input id="searchbox" type="search" placeholder="Suche im Blog..." autocomplete="off" />
-  <button id="clear-search" aria-label="Feld leeren" style="
-      display:none;
-      position: absolute;
-      right: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: #AA0600;
-      cursor: pointer;
-      line-height: 1;
-      padding: 0;">&#10006;</button>
+  <button id="clear-search" aria-label="Feld leeren">&#10006;</button>
 </div>
 
 <!-- Standard-Post-Grid & Pagination -->
@@ -191,6 +179,25 @@ searchbox.addEventListener('input', function() {
     if(pagination) pagination.style.display = '';
   }
 });
+
+const searchbox = document.getElementById('searchbox');
+const clearBtn = document.getElementById('clear-search');
+
+searchbox.addEventListener('input', function() {
+  clearBtn.classList.toggle('visible', this.value.length > 0);
+});
+
+clearBtn.addEventListener('click', function() {
+  searchbox.value = '';
+  clearBtn.classList.remove('visible');
+  searchbox.focus();
+  // Optional: Alle Blog-Cards wieder anzeigen, falls du Suchlogik hast:
+  document.getElementById('searchinfo').innerHTML = '';
+  document.getElementById('searchresults').innerHTML = '';
+  document.getElementById('all-posts').style.display = '';
+  document.querySelector('.pagination').style.display = '';
+});
+
 
 });
 </script>
