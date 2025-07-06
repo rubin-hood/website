@@ -534,7 +534,7 @@ body.noscroll { overflow: hidden; }
   align-items: center;
   justify-content: center;
   margin-top: 0.3em;
-  margin-bottom:1em;
+  margin-bottom:0.2em;
   gap: 0.7em;
 }
 #searchbox {
@@ -561,7 +561,7 @@ body.noscroll { overflow: hidden; }
   color: #009C6C;
   font-size: 1em;
   text-align: center;
-  margin-bottom: 1.2em;
+  margin-bottom: 0.2em;
 }
 .search-info.notfound { color:rgb(92, 92, 92); }
 #searchresults {
