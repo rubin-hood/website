@@ -1,8 +1,8 @@
 ---
 date: 20.02.2025
 layout: post
-title: Troubleshooting Windows Server KDC Errors, DNS Issues, and Time Correction
-excerpt: RUBIN-HOOD Configuration refresh message The system cannot access one or more event logs because of insufficient access rights, file corruption, or other reasons. For more information, see the Operational channel in the ServerManager-ManagementProvider error log on the target server.
+title: Fehlerbehebung bei Windows Server KDC-Problemen, DNS-Störungen und Zeitkorrektur
+excerpt: RUBIN-HOOD Konfigurationsaktualisierung: Das System kann nicht auf ein oder mehrere Ereignisprotokolle zugreifen – aufgrund unzureichender Berechtigungen, Dateibeschädigungen oder anderer Gründe. Weitere Informationen finden Sie im Operational-Kanal des Fehlerprotokolls ServerManager-ManagementProvider auf dem Zielserver.
 image: /rubinhood-blog/assets/img/Troubleshooting-Windows-Server-KDC-Errors-DNS-Issues-and-Time-Correction/001.webp
 ---
 
@@ -10,37 +10,37 @@ image: /rubinhood-blog/assets/img/Troubleshooting-Windows-Server-KDC-Errors-DNS-
 
 ![](/rubinhood-blog/assets/img/Troubleshooting-Windows-Server-KDC-Errors-DNS-Issues-and-Time-Correction/002.jpg)
 
-"RUBIN-HOOD: Configuration refresh message: The system cannot access one or more event logs because of insufficient access rights, file corruption, or other reasons. For more information, see the Operational channel in the ServerManager-ManagementProvider error log on the target server."
+"RUBIN-HOOD: Konfigurationsaktualisierung: Das System kann nicht auf ein oder mehrere Ereignisprotokolle zugreifen – aufgrund unzureichender Zugriffsrechte, Dateibeschädigung oder anderer Ursachen. Weitere Informationen finden Sie im Operational-Kanal des Protokolls ServerManager-ManagementProvider auf dem Zielserver."
 
-## Introduction
+## Einführung
 
-Windows Server is a powerful operating system used for various network services, including Active Directory (AD DS), DNS, and IIS. However, errors can sometimes occur, affecting operations. This article explains how a Windows Server experiencing KDC errors, incorrect time synchronization, and DNS issues was successfully fixed.
+Windows Server ist ein leistungsfähiges Betriebssystem für Netzwerkdienste wie Active Directory (AD DS), DNS und IIS. Doch gelegentlich treten Fehler auf, die den Betrieb beeinträchtigen. Dieser Beitrag beschreibt, wie ein Server mit KDC-Fehlern, fehlerhafter Zeitsynchronisation und DNS-Problemen erfolgreich wiederhergestellt wurde.
 
-## **1. The Problem: KDC Errors & DNS Failures**
+## **1. Problem: KDC-Fehler & DNS-Störungen**
 
-After setting up a Windows Server with the domain **ad.rubinhood.de**, the following issues were encountered:
+Nach der Einrichtung eines Windows Servers mit der Domäne **ad.rubinhood.de** traten folgende Fehler auf:
 
-- The **KDC (Key Distribution Center) error** prevented successful Kerberos authentications.
-- The **Windows Server Manager** displayed errors when updating roles and features.
-- The **system time** was incorrect and not synchronizing automatically.
+- Der **KDC (Key Distribution Center)** verursachte Probleme bei Kerberos-Anmeldungen.
+- Der **Windows Server Manager** meldete Fehler beim Abrufen von Rolleninformationen.
+- Die **Systemzeit** war falsch und wurde nicht automatisch synchronisiert.
 
-After thorough analysis, the primary cause was found to be **incorrect time settings and a lack of Kerberos synchronization**.
+Ursache war eine fehlerhafte Zeitkonfiguration und daraus resultierende Kerberos-Probleme.
 
-## **2. Solution Steps for Troubleshooting**
+## **2. Lösungsschritte zur Fehlerbehebung**
 
-### **Step 1: Checking the Server Time**
+### **Schritt 1: Serverzeit prüfen**
 
-Incorrect date and time synchronization can cause Kerberos errors. The current time setting was checked using:
+Falsche Zeit- und Datumseinstellungen führen zu Kerberos-Fehlern. Der aktuelle Status wurde überprüft mit:
 
 ```
 w32tm /query /status
 ```
 
-It was found that the server was using its **Local CMOS Clock**, which is problematic in an Active Directory environment.
+Es wurde festgestellt, dass der Server seine **lokale CMOS-Uhr** verwendete – was in einer Active-Directory-Umgebung problematisch ist.
 
-### **Step 2: Configuring Correct Time Synchronization**
+### **Schritt 2: Konfiguration der korrekten Zeitsynchronisation**
 
-To ensure the server uses a **reliable time source**, synchronization with an external NTP server was configured:
+Um sicherzustellen, dass der Server eine **zuverlässige Zeitquelle** verwendet, wurde die Synchronisation mit einem externen NTP-Server eingerichtet:
 
 ```
 w32tm /config /manualpeerlist:"time.windows.com,0x8 ntp1.ptb.de,0x8" /syncfromflags:manual /reliable:YES /update
@@ -49,77 +49,79 @@ net start w32time
 w32tm /resync
 ```
 
-After this configuration, `w32tm /query /status` confirmed that the server was now syncing with **ntp1.ptb.de**.
+Nach dieser Konfiguration bestätigte `w32tm /query /status`, dass der Server nun mit **ntp1.ptb.de** synchronisiert.
 
-### **Step 3: Restarting the Windows Time Service**
+### **Schritt 3: Neustart des Windows-Zeitdienstes**
 
-Since some services only fully apply changes after a restart, the time service was synchronized again using:
+Da einige Dienste Änderungen erst nach einem Neustart vollständig übernehmen, wurde der Zeitdienst erneut synchronisiert mit folgendem Befehl:
+
 
 ```
 w32tm /resync /nowait
 ```
 
-Now, `Get-Date` displayed the correct time in **German format**.
+Nun zeigte `Get-Date` die korrekte Uhrzeit im **deutschen Format** an.
 
-### **Step 4: Verifying the Kerberos Service**
+### **Schritt 4: Überprüfung des Kerberos-Dienstes**
 
-Once the time was synchronized, the **KDC service** status was checked:
+Nachdem die Uhrzeit synchronisiert war, wurde der Status des **KDC-Dienstes** überprüft:
 
 ```
 Get-Service kdc
 ```
 
-If the service was stopped, it was started manually with:
+Falls der Dienst gestoppt war, wurde er manuell mit folgendem Befehl gestartet:
 
 ```
 Start-Service kdc
 ```
 
-### **Step 5: Checking Domain Controller Registration**
+### **Schritt 5: Überprüfung der Registrierung des Domänencontrollers**
 
-Another possible issue is an improperly registered domain controller. This was verified using:
+Ein weiteres mögliches Problem ist ein nicht korrekt registrierter Domänencontroller. Dies wurde mit folgendem Befehl überprüft:
 
 ```
 nltest /dsgetdc:ad.rubinhood.de
 ```
 
-If errors appeared, a **reinitialization of the domain role** might be required.
+Wenn Fehler auftraten, war möglicherweise eine **Neuinitialisierung der Domänenrolle** erforderlich.
 
-### **Step 6: Restarting the Server**
+### **Schritt 6: Neustart des Servers**
 
-After applying all configuration changes, the server was restarted. This ensured that **all services (AD DS, DNS, Kerberos, Windows Server Manager) applied the new settings**.
+Nach dem Anwenden aller Konfigurationsänderungen wurde der Server neu gestartet. Dadurch wurde sichergestellt, dass **alle Dienste (AD DS, DNS, Kerberos, Windows Server Manager)** die neuen Einstellungen übernahmen.
 
-After the restart, the server ran **without errors**, displaying all roles correctly in the Server Manager.
+Nach dem Neustart lief der Server **fehlerfrei** und zeigte im Server-Manager alle Rollen korrekt an.
 
-## **3. Conclusion: What Fixed the Issue?**
+## **3. Fazit: Was hat das Problem behoben?**
 
-The primary cause of the issues was **incorrect time synchronization**, leading to Kerberos authentication failures.
-By implementing the following measures, the server was successfully restored:
+Die Hauptursache der Probleme war eine **fehlerhafte Zeitsynchronisation**, die zu Kerberos-Authentifizierungsfehlern führte.  
+Durch die Umsetzung folgender Maßnahmen konnte der Server erfolgreich wiederhergestellt werden:
 
-- **Proper NTP synchronization with a reliable time server**
-- **Restarting the KDC and time services**
-- **Verifying DNS and Active Directory configurations**
-- **Rebooting the server to apply all changes**
+- **Korrekte NTP-Synchronisation mit einer zuverlässigen Zeitquelle**
+- **Neustart von KDC- und Zeitdiensten**
+- **Überprüfung der DNS- und Active-Directory-Konfigurationen**
+- **Neustart des Servers zur Anwendung aller Änderungen**
 
-These steps eliminated **all errors**, and the server is now running smoothly.
+Diese Schritte haben **alle Fehler beseitigt**, und der Server läuft nun stabil.
 
 ---
 
-## **Additional Tips for Preventing Errors**
+## **Zusätzliche Tipps zur Fehlervermeidung**
 
-1. **Regularly check the time source:**
+1. **Zeitquelle regelmäßig überprüfen:**
     
     ```
     w32tm /query /status
     ```
     
-2. **Monitor Kerberos and DNS status frequently:**
+2. **Kerberos- und DNS-Status regelmäßig überwachen:**
+
     
     ```
     nltest /dsgetdc:ad.rubinhood.de
     Get-EventLog -LogName System -EntryType Error -Newest 5
     ```
     
-3. **Plan a reboot after significant changes (time sync, DNS updates) to ensure proper application**
+3. **Nach wichtigen Änderungen (z. B. Zeitsynchronisation, DNS-Updates) einen Neustart einplanen**, um eine ordnungsgemäße Anwendung sicherzustellen.
 
-By following these practices, many common Windows Server issues can be proactively avoided.
+Durch das Befolgen dieser Maßnahmen lassen sich viele typische Windows-Server-Probleme proaktiv vermeiden.

@@ -1,39 +1,39 @@
 ---
 date: 26.01.2025
 layout: post
-title: How to Share a Folder in Windows
-excerpt: Sharing a folder in Windows allows other users on the network to access or edit files. This can be particularly useful in office environments or at home when multiple devices are connected.
+title: Einen Ordner in Windows freigeben
+excerpt: Einen Ordner in Windows freizugeben ermöglicht es anderen Benutzern im Netzwerk, auf Dateien zuzugreifen oder sie zu bearbeiten. Das ist besonders praktisch in Büro- oder Heimnetzwerken mit mehreren Geräten.
 image: /rubinhood-blog/assets/img/How-to-Share-a-Folder-in-Windows/005.webp
 ---
 
 ![](/rubinhood-blog/assets/img/How-to-Share-a-Folder-in-Windows/005.png)
 
-Sharing a folder in Windows allows other users on the network to access or edit files. This can be particularly useful in office environments or at home when multiple devices are connected.
+Einen Ordner in Windows freizugeben ermöglicht es anderen Benutzern im Netzwerk, auf Dateien zuzugreifen oder sie zu bearbeiten. Das ist besonders praktisch in Büro- oder Heimnetzwerken mit mehreren Geräten.
 
-Want to share a folder on your network? Follow these steps to set up folder sharing in Windows.
+Du möchtest einen Ordner im Netzwerk freigeben? Befolge diese Schritte, um die Freigabe unter Windows einzurichten:
 
-Go to the folder you want to share, right-click on it, and select **Properties**. Then, go to the **Sharing** tab.
+Gehe zu dem Ordner, den du freigeben möchtest, klicke mit der rechten Maustaste darauf und wähle **Properties**. Wechsle dann zum Reiter **Sharing**.
 
-Click on **Advanced Sharing** to access more options.
+Klicke auf **Advanced Sharing**, um weitere Optionen zu öffnen.
 
-Check the box **Share this folder**, then click **Permissions** to set access rights.
+Aktiviere das Kontrollkästchen **Share this folder** und klicke anschließend auf **Permissions**, um die Zugriffsrechte festzulegen.
 
-In the **Permissions** window, select **Everyone** and check **Full Control, Change, and Read** under "Allow." Click **OK** to confirm.
+Im Fenster **Permissions** wählst du **Everyone** aus und aktivierst unter „Allow“ die Optionen **Full Control**, **Change** und **Read**. Bestätige mit **OK**.
 
-Click **OK** on all windows and close the properties.  
+Klicke in allen offenen Fenstern auf **OK** und schließe die Eigenschaften.
 
 ![](/rubinhood-blog/assets/img/How-to-Share-a-Folder-in-Windows/001.jpg)
 
-Now, on another PC, open **File Explorer** and type the network path (e.g., `\\WINDOWS-RK1E5UE\rubinhood`) in the address bar.
+Wechsle nun an einen anderen PC, öffne den **File Explorer** und gib den Netzwerkpfad ein (z. B. `\\WINDOWS-RK1E5UE\rubinhood`) in die Adressleiste.
 
 ![](/rubinhood-blog/assets/img/How-to-Share-a-Folder-in-Windows/002.jpg)
 
-If prompted, enter your username and password for the host PC and check **Remember my credentials** if you want to save them. Confirm Access.
+Falls du zur Eingabe aufgefordert wirst, gib deinen Benutzernamen und dein Passwort für den Host-PC ein. Aktiviere **Remember my credentials**, wenn du die Zugangsdaten speichern möchtest. Bestätige den Zugriff.
 
 ![](/rubinhood-blog/assets/img/How-to-Share-a-Folder-in-Windows/003.jpg)
 
-You should now see the shared folder and be able to create and edit files inside it.
+Du solltest nun den freigegebenen Ordner sehen und darin Dateien erstellen oder bearbeiten können.
 
 ![](/rubinhood-blog/assets/img/How-to-Share-a-Folder-in-Windows/004.jpg)
 
-That's it! Your folder is now shared and accessible on the network.
+Das war’s! Dein Ordner ist nun freigegeben und im Netzwerk zugänglich.

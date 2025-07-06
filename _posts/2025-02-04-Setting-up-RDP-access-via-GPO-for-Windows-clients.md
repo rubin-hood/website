@@ -1,105 +1,105 @@
 ---
 date: 04.02.2025
 layout: post
-title: Setting up RDP access via GPO for Windows clients
-excerpt: In a Windows Server environment, Remote Desktop Protocol (RDP) is disabled by default for security reasons. To enable RDP access for employees using Windows clients, you need to configure the correct settings via Group Policy (GPO) in Active Directory (AD). 
+title: RDP-Zugriff per GPO für Windows-Clients einrichten
+excerpt: In einer Windows-Server-Umgebung ist das Remote Desktop Protocol (RDP) aus Sicherheitsgründen standardmäßig deaktiviert. Um RDP-Zugriff für Mitarbeitende mit Windows-Clients zu ermöglichen, müssen die entsprechenden Einstellungen per Gruppenrichtlinie (GPO) in Active Directory (AD) konfiguriert werden.
 image: /rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/023.webp
 ---
 
-In a Windows Server environment, Remote Desktop Protocol (RDP) is disabled by default for security reasons. To enable RDP access for employees using Windows clients, you need to configure the correct settings via Group Policy (GPO) in Active Directory (AD).  
+In einer Windows-Server-Umgebung ist das Remote Desktop Protocol (RDP) aus Sicherheitsgründen standardmäßig deaktiviert. Um RDP-Zugriff für Mitarbeitende mit Windows-Clients zu ermöglichen, müssen die entsprechenden Einstellungen per Gruppenrichtlinie (GPO) in Active Directory (AD) konfiguriert werden.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/023.jpg)
 
-### Open Active Directory Users and Computers
-Open the **Server Manager**, click on **Tools**, and select **Active Directory Users and Computers**.
+### Active Directory-Benutzer und -Computer öffnen
+Öffne den **Server-Manager**, klicke auf **Tools** und wähle **Active Directory-Benutzer und -Computer** aus.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/001.jpg)
 
-### Organize Users and Computers
-Navigate to your domain structure and verify the Organizational Units (OUs) for **Computers** and **Users**.
+### Benutzer und Computer organisieren
+Navigiere durch deine Domänenstruktur und überprüfe die Organisationseinheiten (OUs) für **Computer** und **Benutzer**.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/002.jpg)
-
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/003.jpg)
 
-### Add Users to a Security Group
-Create or manage a group for Remote Desktop users and add the necessary users.
+### Benutzer zur Sicherheitsgruppe hinzufügen
+Erstelle oder verwalte eine Gruppe für Remote-Desktop-Benutzer und füge die benötigten Benutzer hinzu.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/004.jpg)
 
-### Open Group Policy Management
-In the **Server Manager**, go to **Tools** and select **Group Policy Management**.
+### Gruppenrichtlinienverwaltung öffnen
+Im **Server-Manager** unter **Tools** die **Gruppenrichtlinienverwaltung** auswählen.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/005.jpg)
 
-### Create a New Group Policy Object (GPO)
-Create a new GPO named **Allow User Remote Desktop** and link it to the desired OU.
+### Neue Gruppenrichtlinie erstellen
+Erstelle eine neue GPO mit dem Namen **Allow User Remote Desktop** und verknüpfe sie mit der gewünschten OU.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/006.jpg)
-
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/007.jpg)
 
-### Edit the Group Policy
-Right-click on the GPO and select **Edit** to configure it.
+### GPO bearbeiten
+Rechtsklicke auf die GPO und wähle **Bearbeiten**, um sie zu konfigurieren.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/008.jpg)
-
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/009.jpg)
 
-### Add Users to the Remote Desktop Group
-Navigate to **Computer Configuration** → **Policies** → **Windows Settings** → **Security Settings** → **Restricted Groups** and add the required group.
+### Benutzer zur Remote Desktop-Gruppe hinzufügen
+Navigiere zu  
+**Computerkonfiguration** → **Richtlinien** → **Windows-Einstellungen** → **Sicherheitseinstellungen** → **Eingeschränkte Gruppen**  
+und füge die gewünschte Gruppe hinzu.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/010.jpg)
-
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/011.jpg)
 
-### Enable Remote Desktop in the GPO
-Go to **Computer Configuration** → **Policies** → **Administrative Templates** → **Windows Components** → **Remote Desktop Services** → **Remote Desktop Session Host** → **Connections** and enable **Allow users to connect remotely using Remote Desktop Services**.
+### Remote Desktop in der GPO aktivieren
+Navigiere zu  
+**Computerkonfiguration** → **Richtlinien** → **Administrative Vorlagen** → **Windows-Komponenten** → **Remotedesktopdienste** → **Remotedesktopsitzungshost** → **Verbindungen**  
+und aktiviere **Benutzern das Remotedesktopdienste anmelden erlauben**.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/012.jpg)
-
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/013.jpg)
 
-### Enable Network Level Authentication
-Under **Remote Desktop Services** → **Security**, enable **Require user authentication for remote connections by using Network Level Authentication**.
+### Netzwerkauthentifizierung aktivieren
+Unter  
+**Remotedesktopdienste** → **Sicherheit**  
+aktiviere **Authentifizierung auf Netzwerkebene für Remotedesktopverbindungen erforderlich machen**.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/014.jpg)
 
-### Configure Firewall Rules for RDP
-Under **Windows Defender Firewall with Advanced Security**, create a new **Inbound Rule** for **Remote Desktop**.
+### Firewallregel für RDP erstellen
+Unter **Windows Defender Firewall mit erweiterter Sicherheit** erstelle eine neue **eingehende Regel** für **Remotedesktop**.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/015.jpg)
-
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/016.jpg)
-
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/017.jpg)
-
-
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/018.jpg)
 
-### Force Group Policy Update
-Run the command gpupdate /force in PowerShell or Command Prompt as an administrator on both the server and the Windows client to immediately apply the new Group Policy settings.
+### Gruppenrichtlinie aktualisieren
+Führe den folgenden Befehl als Administrator in PowerShell oder der Eingabeaufforderung auf Server und Client aus, um die neue GPO sofort zu übernehmen:
 
-``` gpupdate /force ```
+```powershell
+gpupdate /force
+```
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/019.jpg)
 
-### Test the Remote Desktop Connection
-Open **Remote Desktop Connection**, enter the target computer's name, and log in using the appropriate credentials.
+### Remotedesktopverbindung testen
+Öffne **Remotedesktopverbindung**, gib den Namen des Zielcomputers ein und melde dich mit den entsprechenden Zugangsdaten an.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/020.jpg)
 
-### Verify Successful Connection
-If everything was configured correctly, you should now be able to remotely access the computer.
+### Erfolgreiche Verbindung prüfen
+Wenn alles korrekt konfiguriert wurde, solltest du jetzt per Remotezugriff auf den Computer zugreifen können.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/021.jpg)
 
-### Remote Desktop Connection in vSphere Client
-You can also test the Remote Desktop connection within a virtualized environment like vSphere Client.
+### Remotedesktopverbindung im vSphere Client testen
+Du kannst die RDP-Verbindung auch in einer virtualisierten Umgebung wie dem vSphere Client testen.
 
-### Final Confirmation of Successful RDP Access
-If all configurations are correct, the user should now have full Remote Desktop access to the target machine.
+### Letzte Bestätigung für erfolgreichen RDP-Zugriff
+Wenn alle Konfigurationen stimmen, hat der Benutzer nun vollen Remotezugriff auf das Zielsystem.
 
 ![](/rubinhood-blog/assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/022.jpg)
 
-Congratulations! Remote Desktop access via Group Policy is now successfully set up.
+**Glückwunsch!** Der Remotedesktopzugriff über Gruppenrichtlinie ist nun erfolgreich eingerichtet.
+

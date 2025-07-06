@@ -1,51 +1,51 @@
 ---
 date: 15.02.2025
 layout: post
-title: How to Change the Computer Name in Windows Server 2025
-excerpt: This guide will walk you through the process of changing the computer name in Windows Server 2025.
+title: So änderst du den Computernamen in Windows Server 2025
+excerpt: Diese Anleitung zeigt dir Schritt für Schritt, wie du den Computernamen in Windows Server 2025 ändern kannst.
 image: /rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/001.webp
 ---
 
-This guide will walk you through the process of changing the computer name in Windows Server 2025.
+Diese Anleitung zeigt dir Schritt für Schritt, wie du den Computernamen in **Windows Server 2025** ändern kannst.
 
-In the **Server Manager**, go to **Local Server**. You will see the current computer name.
+Öffne im **Server Manager** den Bereich **Local Server**. Dort siehst du den aktuellen Computernamen.
 
 ![](/rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/001.jpg)
 
-Click on the current **Computer Name** to open the **System Properties** window.
+Klicke auf den aktuellen **Computer Name**, um das Fenster **System Properties** zu öffnen.
 
 ![](/rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/002.jpg)
 
-In the **System Properties** window, click on the **Change...** button.
+Im Fenster **System Properties** klickst du auf die Schaltfläche **Change...**.
 
 ![](/rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/003.jpg)
 
-In the **Computer Name/Domain Changes** window, enter the new computer name.
+Im Fenster **Computer Name/Domain Changes** gibst du den neuen Computernamen ein.
 
 ![](/rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/004.jpg)
 
-Click **OK** to confirm the new name.
+Klicke auf **OK**, um den neuen Namen zu bestätigen.
 
 ![](/rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/005.jpg)
 
-A prompt will appear informing you that a restart is required. Click **OK**.
+Es erscheint eine Meldung, dass ein Neustart erforderlich ist. Klicke auf **OK**.
 
-Then, click **Close** in the **System Properties** window.
+Danach klickst du im Fenster **System Properties** auf **Close**.
 
 ![](/rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/006.jpg)
 
-Finally, click **Restart Now** to apply the changes.
+Zum Schluss klickst du auf **Restart Now**, um die Änderungen zu übernehmen.
 
 ![](/rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/007.jpg)
 
-Once the server reboots, log back in with your administrator account.
+Nach dem Neustart meldest du dich wieder mit deinem Administrator-Konto an.
 
 ![](/rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/008.jpg)
 
-Open **Server Manager** again and check the **Local Server** section to confirm the new computer name is applied.
+Öffne erneut den **Server Manager** und überprüfe im Abschnitt **Local Server**, ob der neue Computername übernommen wurde.
 
 ![](/rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/009.jpg)
 
-And that's it! Your server now has a new name.
+Und das war's! Dein Server hat jetzt einen neuen Namen.
 
 ![](/rubinhood-blog/assets/img/Windows-Server-2025-Change-Computer-Name/010.jpg)

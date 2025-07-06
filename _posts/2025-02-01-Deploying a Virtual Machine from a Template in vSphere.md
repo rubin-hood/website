@@ -1,58 +1,78 @@
 ---
 date: 01.02.2025
 layout: post
-title: Create a New VM from Template (vSphere)
-excerpt: Here's how you can create a new virtual machine (VM) from an existing template in vSphere.
+title: Eine neue VM aus Vorlage erstellen (vSphere)
+excerpt: Hier erfährst du, wie du mit vSphere eine neue virtuelle Maschine (VM) aus einer bestehenden Vorlage erstellst.
 image: /rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/001.webp
 ---
 
-Here's how you can create a new virtual machine (VM) from an existing template in vSphere.
+Hier erfährst du, wie du mit vSphere eine neue virtuelle Maschine (VM) aus einer bestehenden Vorlage erstellst.
 
-1. **Open vSphere Web Client**  
-   Log in to the vSphere Web Client.
+---
 
-2. **Select the Template**  
-   Navigate to **VMs and Templates** from the left menu. Select the desired template (e.g., *VM Vorlage*), right-click on it, and choose **New VM from This Template**.
+### 1. **vSphere Web Client öffnen**  
+Melde dich im **vSphere Web Client** an.
 
-   ![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/001.jpg)
+---
 
-3. **Set Name and Destination Folder**  
-   Enter a name for your new VM (e.g., *Mia Schneider*) and choose the destination folder.
+### 2. **Vorlage auswählen**  
+Navigiere im linken Menü zu **VMs and Templates**. Wähle die gewünschte Vorlage (z. B. *VM Vorlage*) aus, klicke mit der rechten Maustaste darauf und wähle **New VM from This Template**.
 
-   ![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/002.jpg)
+![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/001.jpg)
 
-4. **Select Compute Resource**  
-   Choose the host or cluster where the VM will run.
+---
 
-   ![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/003.jpg)
+### 3. **Name und Zielordner festlegen**  
+Gib deiner neuen VM einen Namen (z. B. *Mia Schneider*) und wähle den Zielordner.
 
-5. **Select Storage**  
-   Pick the datastore where the VM files will be stored.
+![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/002.jpg)
 
-   ![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/004.jpg)
+---
 
-6. **Adjust Clone Options**  
-   Decide if you want to customize the operating system or hardware. You can also choose to power on the VM after creation.
+### 4. **Compute-Ressource auswählen**  
+Wähle den Host oder Cluster, auf dem die VM ausgeführt werden soll.
 
-   ![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/005.jpg)
+![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/003.jpg)
 
-7. **Customize Guest OS (Optional)**  
-   If needed, configure the guest operating system to avoid conflicts.
+---
 
-   ![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/006.jpg)
+### 5. **Speicherort auswählen**  
+Wähle das Datastore, in dem die Dateien der VM gespeichert werden sollen.
 
-8. **Customize Hardware (Optional)**  
-   Adjust the virtual hardware settings according to your needs.
+![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/004.jpg)
 
-   ![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/007.jpg)
-   ![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/008.jpg)
+---
 
-9. **Review and Finish**  
-   Review all settings in the summary and click **Finish** to create the VM.
+### 6. **Klonoptionen anpassen**  
+Lege fest, ob du das Betriebssystem oder die Hardware anpassen möchtest. Du kannst auch auswählen, ob die VM nach der Erstellung automatisch eingeschaltet wird.
 
-   ![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/009.jpg)
+![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/005.jpg)
 
-10. **Done!**  
-    Your new VM will be created and visible in the inventory. You can now power it on and further configure it.
+---
 
-    ![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/010.jpg)
+### 7. **Gastsystem anpassen (optional)**  
+Falls nötig, konfiguriere das Gastsystem, um Konflikte zu vermeiden.
+
+![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/006.jpg)
+
+---
+
+### 8. **Hardware anpassen (optional)**  
+Passe die virtuelle Hardware nach deinen Anforderungen an.
+
+![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/007.jpg)  
+![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/008.jpg)
+
+---
+
+### 9. **Überprüfen und abschließen**  
+Überprüfe alle Einstellungen in der Zusammenfassung und klicke auf **Finish**, um die VM zu erstellen.
+
+![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/009.jpg)
+
+---
+
+### 10. **Fertig!**  
+Die neue VM wird erstellt und erscheint in deiner Inventarliste. Du kannst sie nun einschalten und weiter konfigurieren.
+
+![](/rubinhood-blog/assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/010.jpg)

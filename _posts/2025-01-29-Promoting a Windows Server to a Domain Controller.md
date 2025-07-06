@@ -1,77 +1,98 @@
 ---
 date: 29.01.2025
 layout: post
-title: Setting Up a Domain Controller in Windows Server
-excerpt: This guide walks you through the process of configuring a Windows Server as a domain controller using Active Directory Domain Services (AD DS).
+title: Einen Windows Server als Domain Controller einrichten
+excerpt: Diese Anleitung zeigt dir Schritt für Schritt, wie du einen Windows Server als Domain Controller mit Active Directory Domain Services (AD DS) konfigurierst.
 image: /rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.webp
 ---
 
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.jpg)
-
+![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.jpg)  
 ![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/012.jpg)
 
-This guide walks you through the process of configuring a Windows Server as a domain controller using Active Directory Domain Services (AD DS).
+Diese Anleitung zeigt dir Schritt für Schritt, wie du einen Windows Server als Domain Controller mit **Active Directory Domain Services (AD DS)** konfigurierst.
 
-### Step 1: Open Server Manager and Start Configuration
+---
 
-In **Server Manager**, you'll see a notification under **Post-deployment Configuration**. Click **"Promote this server to a domain controller"**.
+### Schritt 1: Server Manager öffnen und Konfiguration starten
+
+Im **Server Manager** erscheint eine Benachrichtigung unter **Post-deployment Configuration**. Klicke auf **„Promote this server to a domain controller“**.
 
 ![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/001.jpg)
 
-### Step 2: Deployment Configuration
+---
 
-Select **"Add a new forest"**, then enter your **Root domain name** (e.g., `rubinhood.local`).
+### Schritt 2: Bereitstellungskonfiguration
+
+Wähle **„Add a new forest“** und gib deinen **Root-Domain-Namen** ein (z. B. `rubinhood.local`).
 
 ![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/002.jpg)
 
-### Step 3: Configure Domain Controller Options
+---
 
-- Set the **Forest Functional Level** and **Domain Functional Level** (e.g., Windows Server 2025).
-- Enable **DNS Server** and **Global Catalog (GC)**.
-- Set a **DSRM (Directory Services Restore Mode) password**.
+### Schritt 3: Domain Controller Optionen konfigurieren
+
+- Lege den **Forest Functional Level** und den **Domain Functional Level** fest (z. B. Windows Server 2025).  
+- Aktiviere **DNS Server** und **Global Catalog (GC)**.  
+- Setze ein **DSRM-Passwort** (Directory Services Restore Mode).
 
 ![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/003.jpg)
 
-### Step 4: Configure DNS Options
+---
 
-If you see a warning about DNS delegation, you can ignore it unless you need external name resolution.
+### Schritt 4: DNS-Optionen konfigurieren
+
+Wenn eine Warnung zur DNS-Delegierung erscheint, kannst du diese ignorieren, sofern keine externe Namensauflösung erforderlich ist.
 
 ![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/004.jpg)
 
-### Step 5: Set NetBIOS Name
+---
 
-The system will suggest a NetBIOS name (e.g., `RUBINHOOD`). You can change it if necessary.
+### Schritt 5: NetBIOS-Name festlegen
+
+Das System schlägt einen NetBIOS-Namen vor (z. B. `RUBINHOOD`). Du kannst ihn bei Bedarf ändern.
 
 ![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/005.jpg)
 
-### Step 6: Specify AD DS Paths
+---
 
-You can leave the default paths for the **NTDS database**, **log files**, and **SYSVOL**.
+### Schritt 6: Speicherorte für AD DS festlegen
+
+Du kannst die Standardpfade für **NTDS-Datenbank**, **Protokolldateien** und **SYSVOL** beibehalten.
 
 ![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/006.jpg)
 
-### Step 7: Review Configuration
+---
 
-Check all settings. If everything looks good, proceed.
+### Schritt 7: Konfiguration überprüfen
+
+Kontrolliere alle Einstellungen. Wenn alles korrekt ist, fahre fort.
 
 ![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/007.jpg)
 
-### Step 8: Prerequisites Check
+---
 
-The system will check prerequisites. If everything passes, click **Install**.
+### Schritt 8: Voraussetzungen prüfen
+
+Das System prüft nun alle Voraussetzungen. Wenn alles in Ordnung ist, klicke auf **Install**.
 
 ![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/008.jpg)
 
-### Step 9: Server Reboot
+---
 
-The server will restart to apply the changes.
+### Schritt 9: Server-Neustart
+
+Der Server wird automatisch neu gestartet, um die Änderungen anzuwenden.
 
 ![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/009.jpg)
 
-### Step 10: Log in to the New Domain
+---
 
-After reboot, log in with your **Administrator** account to the newly created domain.
+### Schritt 10: Anmeldung an der neuen Domäne
 
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/010.jpg)  
+Nach dem Neustart meldest du dich mit dem **Administrator-Konto** an der neu erstellten Domäne an.
 
-Congrats! Your Windows Server is now a Domain Controller.
+![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/010.jpg)
+
+---
+
+**Glückwunsch!** Dein Windows Server fungiert nun als Domain Controller.
