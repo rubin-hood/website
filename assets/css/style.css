@@ -544,7 +544,7 @@ body.noscroll { overflow: hidden; }
 #searchbox {
   width: 320px;                    /* Feste Breite */
   max-width: 90vw;                 /* Maximal 90% der Viewport-Breite */
-  padding: 0.5em;                  /* Innenabstand */
+  padding: 0.3em;                  /* Innenabstand */
   font-size: 1.1em;                /* Schriftgröße */
   margin-bottom: 0.2em;            /* Abstand nach unten */
   border: 2px solid #009C6C;       /* Rahmen */
