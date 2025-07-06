@@ -3,11 +3,11 @@ date: 29.01.2025
 layout: post
 title: Einen Windows Server als Domain Controller einrichten
 excerpt: Diese Anleitung zeigt dir Schritt für Schritt, wie du einen Windows Server als Domain Controller mit Active Directory Domain Services (AD DS) konfigurierst.
-image: /rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.webp
+image: /assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.webp
 ---
 
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.jpg)  
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/012.jpg)
+![](/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.jpg)  
+![](/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/012.jpg)
 
 Diese Anleitung zeigt dir Schritt für Schritt, wie du einen Windows Server als Domain Controller mit **Active Directory Domain Services (AD DS)** konfigurierst.
 
@@ -17,7 +17,7 @@ Diese Anleitung zeigt dir Schritt für Schritt, wie du einen Windows Server als 
 
 Im **Server Manager** erscheint eine Benachrichtigung unter **Post-deployment Configuration**. Klicke auf **„Promote this server to a domain controller“**.
 
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/001.jpg)
+![](/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/001.jpg)
 
 ---
 
@@ -25,7 +25,7 @@ Im **Server Manager** erscheint eine Benachrichtigung unter **Post-deployment Co
 
 Wähle **„Add a new forest“** und gib deinen **Root-Domain-Namen** ein (z. B. `rubinhood.local`).
 
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/002.jpg)
+![](/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/002.jpg)
 
 ---
 
@@ -35,7 +35,7 @@ Wähle **„Add a new forest“** und gib deinen **Root-Domain-Namen** ein (z.�
 - Aktiviere **DNS Server** und **Global Catalog (GC)**.  
 - Setze ein **DSRM-Passwort** (Directory Services Restore Mode).
 
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/003.jpg)
+![](/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/003.jpg)
 
 ---
 
@@ -43,7 +43,7 @@ Wähle **„Add a new forest“** und gib deinen **Root-Domain-Namen** ein (z.�
 
 Wenn eine Warnung zur DNS-Delegierung erscheint, kannst du diese ignorieren, sofern keine externe Namensauflösung erforderlich ist.
 
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/004.jpg)
+![](/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/004.jpg)
 
 ---
 
@@ -51,7 +51,7 @@ Wenn eine Warnung zur DNS-Delegierung erscheint, kannst du diese ignorieren, sof
 
 Das System schlägt einen NetBIOS-Namen vor (z. B. `RUBINHOOD`). Du kannst ihn bei Bedarf ändern.
 
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/005.jpg)
+![](/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/005.jpg)
 
 ---
 
@@ -59,7 +59,7 @@ Das System schlägt einen NetBIOS-Namen vor (z. B. `RUBINHOOD`). Du kannst ihn
 
 Du kannst die Standardpfade für **NTDS-Datenbank**, **Protokolldateien** und **SYSVOL** beibehalten.
 
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/006.jpg)
+![](/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/006.jpg)
 
 ---
 
@@ -67,7 +67,7 @@ Du kannst die Standardpfade für **NTDS-Datenbank**, **Protokolldateien** und **
 
 Kontrolliere alle Einstellungen. Wenn alles korrekt ist, fahre fort.
 
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/007.jpg)
+![](/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/007.jpg)
 
 ---
 
@@ -75,7 +75,7 @@ Kontrolliere alle Einstellungen. Wenn alles korrekt ist, fahre fort.
 
 Das System prüft nun alle Voraussetzungen. Wenn alles in Ordnung ist, klicke auf **Install**.
 
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/008.jpg)
+![](/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/008.jpg)
 
 ---
 
@@ -83,7 +83,7 @@ Das System prüft nun alle Voraussetzungen. Wenn alles in Ordnung ist, klicke au
 
 Der Server wird automatisch neu gestartet, um die Änderungen anzuwenden.
 
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/009.jpg)
+![](/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/009.jpg)
 
 ---
 
@@ -91,7 +91,7 @@ Der Server wird automatisch neu gestartet, um die Änderungen anzuwenden.
 
 Nach dem Neustart meldest du dich mit dem **Administrator-Konto** an der neu erstellten Domäne an.
 
-![](/rubinhood-blog/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/010.jpg)
+![](/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/010.jpg)
 
 ---
 

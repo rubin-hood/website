@@ -3,7 +3,7 @@ date: 25.01.2025
 layout: post
 title: This PC doesn’t currently meet Windows 11 system requirements
 excerpt: Diese Anleitung zeigt dir, wie du Windows 11 auf einer virtuellen Maschine unter VMware ESXi installierst und dabei die Systemanforderungen (wie TPM und Secure Boot) umgehst.
-image: /rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/001.webp
+image: /assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/001.webp
 ---
 
 Diese Anleitung zeigt dir, wie du Windows 11 auf einer virtuellen Maschine unter VMware ESXi installierst und dabei die Systemanforderungen (wie TPM und Secure Boot) umgehst.
@@ -22,10 +22,10 @@ Diese Anleitung zeigt dir, wie du Windows 11 auf einer virtuellen Maschine unter
 3. **Windows-Setup startet**  
    - Nach einigen Sekunden erscheint das Windows 11 Logo – die Installation beginnt.
 
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/001.jpg)  
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/002.jpg)  
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/003.jpg)  
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/004.jpg)
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/001.jpg)  
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/002.jpg)  
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/003.jpg)  
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/004.jpg)
 
 ---
 
@@ -41,8 +41,8 @@ Da TPM und Secure Boot fehlen, schlägt die Installation ohne Anpassung fehl.
    - Drücke **Shift + F10**, um die Eingabeaufforderung zu öffnen.  
    - Gib **`regedit`** ein und drücke **Enter**.
 
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/005.jpg)  
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/006.jpg)
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/005.jpg)  
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/006.jpg)
 
 ---
 
@@ -69,12 +69,12 @@ HKEY_LOCAL_MACHINE\SYSTEM\Setup
 - Registry Editor und Eingabeaufforderung schließen  
 - Zur Installation zurückkehren
 
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/007.jpg)  
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/008.jpg)  
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/009.jpg)  
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/010.jpg)  
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/011.jpg)  
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/012.jpg)
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/007.jpg)  
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/008.jpg)  
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/009.jpg)  
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/010.jpg)  
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/011.jpg)  
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/012.jpg)
 
 ---
 
@@ -102,9 +102,9 @@ HKEY_LOCAL_MACHINE\SYSTEM\Setup
 
 Mit dieser Methode kannst du Windows 11 erfolgreich auf einer ESXi-VM installieren, selbst wenn die Systemanforderungen wie TPM oder Secure Boot nicht erfüllt werden. Der Registry-Hack ist ein bewährter Weg, um die Systemprüfung zu umgehen.
 
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/013.jpg)  
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/014.jpg)  
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/015.jpg)  
-![](/rubinhood-blog/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/016.jpg)
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/013.jpg)  
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/014.jpg)  
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/015.jpg)  
+![](/assets/img/Install-Windows-11-on-VMware-ESXi-Without-TPM-Secure-Boot/016.jpg)
 
 ## Viel Spaß beim Virtualisieren!

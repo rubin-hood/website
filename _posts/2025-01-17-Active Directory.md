@@ -3,11 +3,11 @@ date: 17.01.2025
 layout: post
 title: Active Directory (AD) – Eine Domäne einrichten und einen Client verbinden
 excerpt: Diese Anleitung bietet eine Schritt-für-Schritt-Erklärung zur Einrichtung einer Active-Directory-Umgebung und zum Verbinden eines Windows-10-Clients mit der Domäne.
-image: /rubinhood-blog/assets/img/Active-Directory/022.webp
+image: /assets/img/Active-Directory/022.webp
 ---
 
-![](/rubinhood-blog/assets/img/Active-Directory/021.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/022.jpg)
+![](/assets/img/Active-Directory/021.jpg)  
+![](/assets/img/Active-Directory/022.jpg)
 
 ## Einführung  
 Diese Anleitung bietet eine Schritt-für-Schritt-Erklärung zur Einrichtung einer **Active Directory**-Umgebung und zum Verbinden eines **Windows 10 Clients** mit der Domäne.  
@@ -30,9 +30,9 @@ Rechtsklick auf deine Domäne, dann **New > Organizational Unit** auswählen.
 #### Schritt 3: Name für OU vergeben  
 Gib z. B. **Employees** als Namen ein und stelle sicher, dass **Protect container from accidental deletion** aktiviert ist. Klicke auf **OK**.
 
-![](/rubinhood-blog/assets/img/Active-Directory/001.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/002.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/003.jpg)
+![](/assets/img/Active-Directory/001.jpg)  
+![](/assets/img/Active-Directory/002.jpg)  
+![](/assets/img/Active-Directory/003.jpg)
 
 #### Schritt 4: Neues Benutzerkonto erstellen  
 Rechtsklick auf die OU **Employees**, dann **New > User** wählen.
@@ -43,9 +43,9 @@ Vorname, Nachname und Anmeldename eingeben (z. B. `C.Neumann`). Klicke auf **N
 #### Schritt 6: Passwort festlegen  
 Ein **Passwort** eingeben und **User must change password at next logon** aktivieren. Klicke auf **Next**.
 
-![](/rubinhood-blog/assets/img/Active-Directory/004.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/005.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/006.jpg)
+![](/assets/img/Active-Directory/004.jpg)  
+![](/assets/img/Active-Directory/005.jpg)  
+![](/assets/img/Active-Directory/006.jpg)
 
 #### Schritt 7: Benutzerkonto bestätigen  
 Überprüfe die Daten und klicke auf **Finish**, um das Konto zu erstellen.
@@ -56,9 +56,9 @@ Gehe zum **Windows 10 Client** und öffne über das Netzwerksymbol in der Taskle
 #### Schritt 9: Erweiterte Netzwerkeinstellungen öffnen  
 Klicke auf **Change adapter options**, um die Adaptereinstellungen zu öffnen.
 
-![](/rubinhood-blog/assets/img/Active-Directory/007.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/008.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/009.jpg)
+![](/assets/img/Active-Directory/007.jpg)  
+![](/assets/img/Active-Directory/008.jpg)  
+![](/assets/img/Active-Directory/009.jpg)
 
 #### Schritt 10: Netzwerkadapter konfigurieren  
 Öffne die **Ethernet properties**, wähle **Internet Protocol Version 4 (TCP/IPv4)** und setze den **Preferred DNS Server** auf die IP-Adresse des Domain Controllers (z. B. `192.168.178.10`). Klicke auf **OK**.
@@ -69,9 +69,9 @@ Klicke auf **Change adapter options**, um die Adaptereinstellungen zu öffnen.
 #### Schritt 12: Computereinstellungen ändern  
 Im Fenster **System Properties** auf **Change** klicken, um den PC umzubenennen oder einer Domäne beizutreten.
 
-![](/rubinhood-blog/assets/img/Active-Directory/010.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/011.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/012.jpg)
+![](/assets/img/Active-Directory/010.jpg)  
+![](/assets/img/Active-Directory/011.jpg)  
+![](/assets/img/Active-Directory/012.jpg)
 
 #### Schritt 13: Domäne beitreten  
 Wähle **Domain**, gib den Domänennamen ein (z. B. `rubinhood.local`) und bestätige mit **OK**.
@@ -82,9 +82,9 @@ Gib die **Administrator-Zugangsdaten** ein und klicke auf **OK**.
 #### Schritt 15: Beitrittsbestätigung  
 Eine Nachricht bestätigt, dass der Computer erfolgreich der Domäne beigetreten ist. Klicke auf **OK**.
 
-![](/rubinhood-blog/assets/img/Active-Directory/013.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/014.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/015.jpg)
+![](/assets/img/Active-Directory/013.jpg)  
+![](/assets/img/Active-Directory/014.jpg)  
+![](/assets/img/Active-Directory/015.jpg)
 
 #### Schritt 16: Computer neu starten  
 Eine Aufforderung zum **Neustart** erscheint. Klicke auf **OK** und starte das System neu.
@@ -95,15 +95,15 @@ Wähle auf dem Anmeldebildschirm **Other user** und gib die Domänendaten ein (z
 #### Schritt 18: Passwortänderung bei Erstlogin  
 Da das Konto beim ersten Login ein neues Passwort erfordert, erscheint eine Aufforderung. Klicke auf **OK**.
 
-![](/rubinhood-blog/assets/img/Active-Directory/016.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/017.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/018.jpg)
+![](/assets/img/Active-Directory/016.jpg)  
+![](/assets/img/Active-Directory/017.jpg)  
+![](/assets/img/Active-Directory/018.jpg)
 
 #### Schritt 19: Neues Passwort eingeben  
 Gib ein **neues Passwort** ein, bestätige es und drücke **Enter**.
 
-![](/rubinhood-blog/assets/img/Active-Directory/019.jpg)  
-![](/rubinhood-blog/assets/img/Active-Directory/020.jpg)
+![](/assets/img/Active-Directory/019.jpg)  
+![](/assets/img/Active-Directory/020.jpg)
 
 #### Schritt 20: Erstes Login & Profilerstellung  
 Windows richtet das Benutzerprofil ein – der Domänenbenutzer ist nun erfolgreich angemeldet.

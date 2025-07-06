@@ -3,12 +3,12 @@ date: 27.08.2024
 layout: post
 title: Installation von Ubuntu Server auf dem Raspberry Pi 5
 excerpt: Der Raspberry Pi 5 ist ein leistungsstarker Einplatinencomputer, der sich hervorragend als Heimserver eignet. In diesem Blogbeitrag zeige ich Ihnen, wie Sie Ubuntu Server auf Ihrem Raspberry Pi 5 installieren können. Folgen Sie dieser detaillierten Anleitung, um Ihren eigenen Ubuntu-Server einzurichten.
-image: /rubinhood-blog/assets/img/Raspberry-Pi/001.webp
+image: /assets/img/Raspberry-Pi/001.webp
 ---
 
-![](/rubinhood-blog/assets/img/Raspberry-Pi/001.jpg)
+![](/assets/img/Raspberry-Pi/001.jpg)
 
-![](/rubinhood-blog/assets/img/Raspberry-Pi/002.jpg)
+![](/assets/img/Raspberry-Pi/002.jpg)
 
 Der Raspberry Pi 5 ist ein leistungsstarker Einplatinencomputer, der sich hervorragend als Heimserver eignet. In diesem Blogbeitrag zeige ich Ihnen, wie Sie Ubuntu Server auf Ihrem Raspberry Pi 5 installieren können. Folgen Sie dieser detaillierten Anleitung, um Ihren eigenen Ubuntu-Server einzurichten.
 
@@ -21,7 +21,7 @@ Der Raspberry Pi 5 ist ein leistungsstarker Einplatinencomputer, der sich hervor
 - Ethernet-Kabel oder WLAN-Verbindung
 - Computer zum Schreiben des Images
 
-![](/rubinhood-blog/assets/img/Raspberry-Pi/003.jpg)
+![](/assets/img/Raspberry-Pi/003.jpg)
 
 ## Schritt 1: Raspberry Pi Imager herunterladen und installieren
 
@@ -29,7 +29,7 @@ Der Raspberry Pi 5 ist ein leistungsstarker Einplatinencomputer, der sich hervor
 2. Laden Sie den "Raspberry Pi Imager" für Ihr Betriebssystem herunter.
 3. Installieren Sie den Raspberry Pi Imager auf Ihrem Computer.
 
-![](/rubinhood-blog/assets/img/Raspberry-Pi/004.jpg)
+![](/assets/img/Raspberry-Pi/004.jpg)
 
 ## Schritt 2: Ubuntu Server Image auf die MicroSD-Karte schreiben
 
@@ -54,7 +54,7 @@ Der Raspberry Pi 5 ist ein leistungsstarker Einplatinencomputer, der sich hervor
 3. Schließen Sie die Stromversorgung an, um den Raspberry Pi 5 zu starten.
 4. Warten Sie einige Minuten, bis das System vollständig gebootet ist.
 
-![](/rubinhood-blog/assets/img/Raspberry-Pi/005.jpg)
+![](/assets/img/Raspberry-Pi/005.jpg)
 
 ## Schritt 4: Verbindung zum Ubuntu Server herstellen
 
@@ -97,4 +97,4 @@ Glückwunsch! Sie haben erfolgreich Ubuntu Server auf Ihrem Raspberry Pi 5 insta
 
 Denken Sie daran, Ihr System regelmäßig zu aktualisieren und die Sicherheitseinstellungen an Ihre Bedürfnisse anzupassen. Viel Spaß beim Experimentieren und Lernen mit Ihrem neuen Ubuntu Server auf dem Raspberry Pi 5!
 
-![](/rubinhood-blog/assets/img/Raspberry-Pi/006.jpg)
+![](/assets/img/Raspberry-Pi/006.jpg)

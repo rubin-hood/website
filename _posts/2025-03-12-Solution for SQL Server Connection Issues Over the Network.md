@@ -3,10 +3,10 @@ date: 12.03.2025
 layout: post
 title: Lösung für SQL Server Verbindungsprobleme im Netzwerk
 excerpt: Beim Verbindungsversuch von einem Client (z. B. Windows 11) zur SQL Server Instanz RUBINHOOD können Verbindungsfehler auftreten. Fehlermeldungen wie „SQL Server does not exist or access denied“ oder „SQL Server Error 17“ deuten darauf hin, dass der Server nicht erreichbar ist.
-image: /rubinhood-blog/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/003.webp
+image: /assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/003.webp
 ---
 
-![](/rubinhood-blog/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/003.png)
+![](/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/003.png)
 
 ## **Problemstellung**
 
@@ -37,7 +37,7 @@ Diese Anleitung bietet eine Schritt-für-Schritt-Lösung mit Screenshots.
 
 ## **Schritt 2: Statischen Port 1433 setzen**
 
-![](/rubinhood-blog/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/002.jpg)
+![](/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/002.jpg)
 
 1. **Doppelklick auf "TCP/IP" > Reiter "IP Addresses" öffnen.**
 2. Nach unten scrollen zu **IPAll**.
@@ -90,7 +90,7 @@ Diese Anleitung bietet eine Schritt-für-Schritt-Lösung mit Screenshots.
 
 ### **Beispiel-Fehlermeldung bei ODBC**
 
-![](/rubinhood-blog/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/001.jpg)
+![](/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/001.jpg)
 
 Diese Fehlermeldung bedeutet meist:
 

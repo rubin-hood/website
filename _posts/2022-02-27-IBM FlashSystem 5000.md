@@ -12,7 +12,7 @@ Stell dir vor: Deine Datenbankabfragen schleichen dahin, virtuelle Maschinen kä
 
 Hier kommt das **IBM FlashSystem 5000** ins Spiel – keine gewöhnliche Speicherlösung, sondern ein technologisches Kraftpaket, das das Einstiegssegment im Enterprise-Bereich neu definiert.
 
-![](/rubinhood-blog/assets/img/IBM-FlashSystem-5000/001.jpg)
+![](/assets/img/IBM-FlashSystem-5000/001.jpg)
 
 ---
 
@@ -209,7 +209,7 @@ So erreichte das Unternehmen bis zu **90 % Kosteneinsparung**:
 
 ## 🔧 Best Practices bei der Implementierung
 
-![https://i.imgur.com/x1GoBhV.png](/rubinhood-blog/assets/img/IBM-FlashSystem-5000/002.jpg)
+![https://i.imgur.com/x1GoBhV.png](/assets/img/IBM-FlashSystem-5000/002.jpg)
 
 ### 🚀 Erstbereitstellung
 

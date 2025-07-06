@@ -6,7 +6,7 @@ excerpt: Hier findest du ein Beispiel für eine durchdachte Serverlandschaft, wi
 image: /assets/img/Server-Infrastruktur-im-Ueberblick/001.webp
 ---
 
-![Alternativtext](/rubinhood-blog/assets/img/Server-Infrastruktur-im-Ueberblick/001de.svg)
+![Alternativtext](/assets/img/Server-Infrastruktur-im-Ueberblick/001de.svg)
 
 Du lernst gerade, wie moderne IT-Infrastrukturen aufgebaut sind? Dann ist dieser Überblick genau das Richtige für dich.
 
