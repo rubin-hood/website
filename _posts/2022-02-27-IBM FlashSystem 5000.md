@@ -209,7 +209,7 @@ So erreichte das Unternehmen bis zu **90 % Kosteneinsparung**:
 
 ## 🔧 Best Practices bei der Implementierung
 
-![https://i.imgur.com/x1GoBhV.png](/assets/img/IBM-FlashSystem-5000/002.jpg)
+![](/assets/img/IBM-FlashSystem-5000/002.jpg)
 
 ### 🚀 Erstbereitstellung
 
