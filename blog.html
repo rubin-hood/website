@@ -10,8 +10,8 @@ narrow: true
   {% for post in site.posts %}
     <div class="blog-list-item">
       <a class="blog-list-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <div class="blog-list-date">{{ post.date | date: "%d.%m.%Y" }}</div>
       <div class="blog-list-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</div>
-      <div class="blog-list-date">{{ post.date | date: "%d.%m.%Y" }}</div>
     </div>
   {% endfor %}
 </div>
