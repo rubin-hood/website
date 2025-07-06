@@ -535,7 +535,7 @@ body.noscroll { overflow: hidden; }
   flex-direction: row;             /* Elemente nebeneinander anordnen */
   align-items: center;             /* Vertikal zentrieren */
   justify-content: center;         /* Horizontal zentrieren */
-  margin-top: 1.3em;               /* Abstand nach oben */
+  margin-top: 5.3em;               /* Abstand nach oben */
   margin-bottom: 0.2em;            /* Abstand nach unten */
   gap: 0.7em;                      /* Abstand zwischen Suchfeld und Button */
 }
