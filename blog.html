@@ -4,6 +4,16 @@ title: Alle Blogbeiträge
 permalink: /blog/
 narrow: true
 ---
+<div id="all-posts" class="blog-list">
+  {% for post in site.posts %}
+    <div class="blog-list-item">
+      <a class="blog-list-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <div class="blog-list-date">{{ post.date | date: "%d.%m.%Y" }}</div>
+      <div class="blog-list-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</div>
+    </div>
+  {% endfor %}
+</div>
+
 
 <h1>Alle Blogbeiträge</h1>
 <div class="blog-list">
@@ -15,3 +25,84 @@ narrow: true
     </div>
   {% endfor %}
 </div>
+
+
+<script>
+let posts = [];
+let searchJsonLoaded = false;
+
+function performSearch() {
+  const searchbox = document.getElementById('searchbox');
+  const searchresults = document.getElementById('searchresults');
+  const searchinfo = document.getElementById('searchinfo');
+  const allposts = document.getElementById('all-posts');
+
+  let query = searchbox.value.trim();
+  if (query.length < 3) {
+    searchresults.innerHTML = '';
+    searchinfo.innerHTML = '';
+    allposts.style.display = '';
+    return;
+  }
+  let results = posts.filter(post =>
+    post.content.toLowerCase().includes(query.toLowerCase()) ||
+    post.title.toLowerCase().includes(query.toLowerCase())
+  );
+  let out = '';
+  let info = '';
+  if (results.length) {
+    info = `<div class="search-info">${results.length} Treffer gefunden</div>`;
+    out = results.map(post => {
+      // Highlight-Suche
+      let re = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+')','gi');
+      let title = post.title.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
+      let snippet = post.content;
+      let idx = snippet.toLowerCase().indexOf(query.toLowerCase());
+      if (idx > -1) {
+        snippet = snippet.substring(Math.max(0, idx-60), idx+80);
+      } else {
+        snippet = snippet.substring(0, 140);
+      }
+      let excerpt = snippet.replace(re, '<b style="color:#AA0600;font-weight:bold;">$1</b>');
+      return `
+      <div class="blog-list-item">
+        <a class="blog-list-title" href="${post.url}">${title}</a>
+        <div class="blog-list-date">${new Date(post.date).toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' })}</div>
+        <div class="blog-list-excerpt">${excerpt}</div>
+      </div>
+      `;
+    }).join('');
+  } else {
+    info = `<div class="search-info notfound">Keine Treffer gefunden.</div>`;
+    out = '';
+  }
+  allposts.style.display = 'none';
+  searchinfo.innerHTML = info;
+  searchresults.innerHTML = out;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const searchbox = document.getElementById('searchbox');
+  // Load JSON only once
+  fetch('{{ "/search.json" | relative_url }}')
+    .then(response => response.json())
+    .then(function(json){
+      posts = json;
+      searchJsonLoaded = true;
+    });
+
+  searchbox.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') performSearch();
+  });
+  searchbox.addEventListener('input', function() {
+    if (this.value.trim().length === 0) {
+      document.getElementById('searchresults').innerHTML = '';
+      document.getElementById('searchinfo').innerHTML = '';
+      document.getElementById('all-posts').style.display = '';
+    }
+  });
+  searchbox.addEventListener('input', function(e) {
+    if (this.value.trim().length >= 3) performSearch();
+  });
+});
+</script>
