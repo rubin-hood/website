@@ -213,7 +213,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 0rem 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.2rem;
   justify-content: center;
 }
 .blog-card {
