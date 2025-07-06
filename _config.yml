@@ -14,7 +14,7 @@ kramdown:
 
 highlighter: rouge
 
-paginate: 6                # Anzahl der Posts pro Seite (kannst du anpassen)
+paginate: 12                # Anzahl der Posts pro Seite (kannst du anpassen)
 paginate_path: "/page:num" # URL-Pfad für weitere Seiten
 
 

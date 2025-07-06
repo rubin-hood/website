@@ -1,112 +1,126 @@
 ---
 date: 12.03.2025
 layout: post
-title: Solution for SQL Server Connection Issues Over the Network
-excerpt: When attempting to connect from a client (e.g., Windows 11) to a SQL Server instance RUBINHOOD, connection errors may occur. Error messages such as "SQL Server does not exist or access denied" or "SQL Server Error 17 indicate that the server is unreachable.
+title: Lösung für SQL Server Verbindungsprobleme im Netzwerk
+excerpt: Beim Verbindungsversuch von einem Client (z. B. Windows 11) zur SQL Server Instanz RUBINHOOD können Verbindungsfehler auftreten. Fehlermeldungen wie „SQL Server does not exist or access denied“ oder „SQL Server Error: 17“ deuten darauf hin, dass der Server nicht erreichbar ist.
 image: /rubinhood-blog/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/003.webp
 ---
 
 ![](/rubinhood-blog/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/003.png)
 
-## **Problem Statement**
+## **Problemstellung**
 
-When attempting to connect from a client (e.g., Windows 11) to a SQL Server instance **RUBINHOOD**, connection errors may occur. Error messages such as **"SQL Server does not exist or access denied"** or **"SQL Server Error: 17"** indicate that the server is unreachable.
+Beim Verbindungsversuch von einem Client (z. B. Windows 11) zur SQL Server Instanz **RUBINHOOD** können Verbindungsfehler auftreten. Fehlermeldungen wie **„SQL Server does not exist or access denied“** oder **„SQL Server Error: 17“** deuten darauf hin, dass der Server nicht erreichbar ist.
 
-The problem is often due to one of the following reasons:
+Häufige Ursachen:
 
-- **TCP/IP protocol is not enabled**
-- **SQL Server is listening on a dynamic port instead of 1433**
-- **Firewall is blocking the SQL Server port**
-- **SQL Server Browser service is disabled**
+- **TCP/IP-Protokoll ist nicht aktiviert**
+- **SQL Server lauscht auf einem dynamischen statt statischen Port (1433)**
+- **Firewall blockiert den SQL-Port**
+- **SQL Server Browser-Dienst ist deaktiviert**
 
-This article provides a step-by-step guide to resolving these issues based on a troubleshooting process with screenshots.
-
----
-
-## **Step 1: Verify that TCP/IP is Enabled**
-
-1. **Open SQL Server Configuration Manager** (Win + R, then enter `SQLServerManagerXX.msc`, where XX is the SQL version).
-2. **Navigate to "SQL Server Network Configuration" > "Protocols for RUBINHOOD".**
-3. Ensure that **TCP/IP is enabled**.
-4. If TCP/IP is disabled, right-click > **Enable**.
-5. Restart the SQL Server service.
-
-*Result: SQL Server RUBINHOOD now accepts connections over TCP/IP.*
+Diese Anleitung bietet eine Schritt-für-Schritt-Lösung mit Screenshots.
 
 ---
 
-## **Step 2: Set a Static Port 1433**
+## **Schritt 1: Prüfen, ob TCP/IP aktiviert ist**
+
+1. **SQL Server Configuration Manager öffnen** (Win + R > `SQLServerManagerXX.msc`, XX = SQL-Version).
+2. Gehe zu **SQL Server Network Configuration > Protocols for RUBINHOOD**.
+3. Stelle sicher, dass **TCP/IP aktiviert** ist.
+4. Falls nicht: Rechtsklick > **Enable**.
+5. SQL Server Dienst neu starten.
+
+*Ergebnis: SQL Server RUBINHOOD akzeptiert nun TCP/IP-Verbindungen.*
+
+---
+
+## **Schritt 2: Statischen Port 1433 setzen**
 
 ![](/rubinhood-blog/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/002.jpg)
 
-1. **Double-click on "TCP/IP" > Go to the "IP Addresses" tab.**
-2. Scroll down to **"IPAll"**.
-3. **Clear "TCP Dynamic Ports"** (must be empty).
-4. **Set "TCP Port" to 1433.**
-5. **Restart the SQL Server service.**
+1. **Doppelklick auf "TCP/IP" > Reiter "IP Addresses" öffnen.**
+2. Nach unten scrollen zu **IPAll**.
+3. **"TCP Dynamic Ports" leeren** (muss leer sein).
+4. **"TCP Port" auf 1433 setzen.**
+5. SQL Server Dienst neu starten.
 
-*Result: SQL Server RUBINHOOD now uses the standard port 1433, which is required for remote connections.*
+*Ergebnis: SQL Server RUBINHOOD verwendet nun den Standardport 1433 für entfernte Verbindungen.*
 
 ---
 
-## **Step 3: Configure Firewall for SQL Server RUBINHOOD**
+## **Schritt 3: Firewall für SQL Server konfigurieren**
 
-1. **Open Windows PowerShell as Administrator** (Win + X > "PowerShell (Admin)").
-2. Run the following command to allow the port through the firewall:
+1. **PowerShell als Administrator öffnen** (Win + X > „PowerShell (Admin)”).
+2. Folgenden Befehl ausführen:
+
    ```powershell
    New-NetFirewallRule -DisplayName "Allow SQL Server 1433" -Direction Inbound -Protocol TCP -LocalPort 1433 -Action Allow
+
    ```
 
-*Result: SQL Server RUBINHOOD is now accessible over the network.*
+*Ergebnis: SQL Server RUBINHOOD ist jetzt über das Netzwerk erreichbar.*
 
 ---
 
-## **Step 4: Test the Connection from a Client**
+## **Schritt 4: Verbindung vom Client testen**
 
-1. **Open PowerShell on another machine (e.g., Windows 11 client).**
-2. Run the following command to test network connectivity:
-   ```powershell
-   Test-NetConnection -ComputerName 192.168.178.3 -Port 1433
-   ```
-3. If `TcpTestSucceeded = True`, the port is reachable.
-4. If `False`, check the firewall and network settings again.
+1. **PowerShell auf einem anderen Rechner öffnen (z. B. Windows 11 Client).**
+2. Verbindung mit folgendem Befehl testen:
+    
+    ```powershell
+    Test-NetConnection -ComputerName 192.168.178.3 -Port 1433
+    ```
+    
+3. Wenn `TcpTestSucceeded = True`, ist der Port erreichbar.
+4. Wenn `False`, Firewall und Netzwerkeinstellungen erneut prüfen.
 
-*Result: SQL Server RUBINHOOD is now accessible from the network.*
+*Ergebnis: SQL Server RUBINHOOD ist nun vom Netzwerk aus erreichbar.*
 
 ---
 
-## **Step 5: Test Connection with SQL Server Management Studio (SSMS) or ODBC**
+## **Schritt 5: Verbindung mit SSMS oder ODBC testen**
 
-1. **Open SSMS or ODBC Data Source Administrator on the client.**
-2. **Enter the server name:**
-   - If default instance: `192.168.178.3`
-   - If named instance RUBINHOOD: `192.168.178.3\RUBINHOOD`
-   - If specifying the port explicitly: `192.168.178.3,1433`
-3. Test the connection.
+1. **SSMS oder ODBC Data Source Administrator am Client öffnen.**
+2. **Servername eingeben:**
+    - Standardinstanz: `192.168.178.3`
+    - Benannte Instanz RUBINHOOD: `192.168.178.3\RUBINHOOD`
+    - Mit explizitem Port: `192.168.178.3,1433`
+3. Verbindung testen.
 
-### **Example ODBC Error Message**
-If the connection fails, you may see an error like this:
+### **Beispiel-Fehlermeldung bei ODBC**
 
 ![](/rubinhood-blog/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/001.jpg)
 
-This error typically indicates that:
-- The server is unreachable due to a firewall or network issue.
-- TCP/IP is not enabled.
-- SQL Server is not listening on the correct port.
+Diese Fehlermeldung bedeutet meist:
 
-To resolve this, ensure that **TCP/IP is enabled**, the **firewall allows connections**, and the **correct port (1433) is set** in SQL Server Configuration Manager.
+- Der Server ist durch Firewall oder Netzwerk nicht erreichbar.
+- **TCP/IP ist nicht aktiviert.**
+- SQL Server lauscht nicht auf dem richtigen Port.
 
-*Result: Successful connection to SQL Server RUBINHOOD over the network!*
+Zur Behebung:
+
+- Aktiviere **TCP/IP**.
+- Erlaube Verbindungen in der **Firewall**.
+- Setze Port **1433** in SQL Server Configuration Manager.
+
+*Ergebnis: Erfolgreiche Verbindung zum SQL Server RUBINHOOD über das Netzwerk!*
 
 ---
 
-## **Conclusion**
+## **Fazit**
 
-By correctly configuring **TCP/IP, setting a fixed port (1433), and adjusting firewall rules**, the connection issue was resolved. If errors persist, check:
+Durch die richtige Konfiguration von **TCP/IP**, einem festen Port (**1433**) und einer entsprechenden **Firewallregel** wurde das Verbindungsproblem gelöst.
 
-- **Whether the SQL Server service is running** (`Get-Service -Name "MSSQL$RUBINHOOD"`)
-- **If SQL Server authentication is properly configured**
-- **If domain policies allow access to SQL Server RUBINHOOD**
+Falls das Problem weiterhin besteht, prüfe:
 
-Hopefully, this guide helps you resolve SQL Server RUBINHOOD network issues! 
+- Ob der SQL Server Dienst läuft:
+    
+    ```powershell
+    Get-Service -Name "MSSQL$RUBINHOOD"
+    ```
+    
+- Ob SQL Server-Authentifizierung korrekt eingerichtet ist.
+- Ob Gruppenrichtlinien oder Domäneneinstellungen Verbindungen erlauben.
 
+Ich hoffe, diese Anleitung hilft dir bei der Lösung von Netzwerkproblemen mit SQL Server RUBINHOOD!
