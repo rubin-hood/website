@@ -537,7 +537,6 @@ body.noscroll { overflow: hidden; }
   justify-content: center;         /* Horizontal zentrieren */
   margin-top: 4em;               /* Abstand nach oben */
   margin-bottom: 0.2em;            /* Abstand nach unten */
-  gap: 0.7em;                      /* Abstand zwischen Suchfeld und Button */
 }
 
 /* Suchfeld-Eingabe */

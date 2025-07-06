@@ -167,9 +167,18 @@ document.addEventListener('DOMContentLoaded', function() {
     animateBlogCards('#searchresults');
   }
 
-  searchbox.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') loadAndSearch();
-  });
+searchbox.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') loadAndSearch();
+});
+
+searchbox.addEventListener('input', function() {
+  // Wenn das Suchfeld geleert wird, sofort alles anzeigen!
+  if (searchbox.value.trim().length === 0) {
+    searchresults.innerHTML = '';
+    searchinfo.innerHTML = '';
+    allposts.style.display = '';
+    if(pagination) pagination.style.display = '';
+  }
 });
 </script>
 
