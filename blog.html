@@ -13,16 +13,16 @@ narrow: true
 <div id="searchresults"></div>
 
 
-<h1>Alle Blogbeiträge</h1>
-<div class="blog-list">
+<div id="all-posts" class="blog-list">
   {% for post in site.posts %}
     <div class="blog-list-item">
       <a class="blog-list-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    <div class="blog-list-date">{{ post.date | date: "%d.%m.%Y" }}</div>
+      <div class="blog-list-date">{{ post.date | date: "%d.%m.%Y" }}</div>
       <div class="blog-list-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</div>
     </div>
   {% endfor %}
 </div>
+
 
 
 <script>
