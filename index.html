@@ -84,7 +84,6 @@ function animateBlogCards(parentSelector) {
 
 document.addEventListener('DOMContentLoaded', function() {
   const searchbox = document.getElementById('searchbox');
-  const searchbtn = document.getElementById('search-btn');
   const searchresults = document.getElementById('searchresults');
   const searchinfo = document.getElementById('searchinfo');
   const allposts = document.getElementById('all-posts');
@@ -168,7 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
     animateBlogCards('#searchresults');
   }
 
-  searchbtn.addEventListener('click', loadAndSearch);
   searchbox.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') loadAndSearch();
   });
