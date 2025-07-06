@@ -5,20 +5,12 @@ permalink: /blog/
 ---
 
 <h1>Alle Blogbeiträge</h1>
-<div class="blog-teaser-grid">
+<div class="blog-list">
   {% for post in site.posts %}
-    <a class="blog-card" href="{{ post.url | relative_url }}">
-      <div class="card-img">
-        {% if post.image %}
-          <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
-        {% else %}
-          Bild
-        {% endif %}
-      </div>
-      <div class="card-content">
-        <div class="card-title">{{ post.title }}</div>
-        <div class="card-desc">{{ post.excerpt | strip_html | truncate: 140 }}</div>
-      </div>
-    </a>
+    <div class="blog-list-item">
+      <a class="blog-list-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <div class="blog-list-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</div>
+      <div class="blog-list-date">{{ post.date | date: "%d.%m.%Y" }}</div>
+    </div>
   {% endfor %}
 </div>
