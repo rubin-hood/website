@@ -680,7 +680,7 @@ body.noscroll { overflow: hidden; }
   margin: 2rem auto;
   display: flex;
   flex-direction: column;
-  gap: 2.3rem; /* Mehr Abstand zwischen Posts */
+  gap: 1rem; /* Mehr Abstand zwischen Posts */
 }
 .blog-list-item {
   padding-bottom: 0.7rem;
