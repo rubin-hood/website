@@ -3,7 +3,7 @@ date: 2022-06-10
 layout: post
 title: Nested Virtualization in VMware Workstation unter Windows 11 deaktivieren
 excerpt: Wenn du beim Starten einer virtuellen Maschine unter Windows 11 die Fehlermeldung „VMware Workstation does not support nested virtualization“ erhältst, liegt das Problem häufig an aktivierten Sicherheitsfunktionen wie Device Guard, Credential Guard oder dem Windows Hypervisor.
-image: /assets/img/Disable-the-Windows-Hypervisor/001.jpg
+image: /assets/img/Disable-the-Windows-Hypervisor/001.png
 ---
 
 ![Alternativtext](/assets/img/Disable-the-Windows-Hypervisor/001.png)  

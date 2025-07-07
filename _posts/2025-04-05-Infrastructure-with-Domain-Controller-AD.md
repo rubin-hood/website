@@ -3,7 +3,7 @@ date: 05.04.2025
 layout: post
 title: VM-Infrastruktur mit AD, Exchange, SQL auf ESXi via Workstation unter Win 11
 excerpt: In meinem IT-Labor habe ich eine beispielhafte Netzwerkumgebung eingerichtet. Die gesamte Umgebung besteht aus mehreren virtualisierten Windows-Servern und Clients, die auf VMware ESXi laufen – gehostet auf einem physischen Windows-11-System mit VMware Workstation.
-image: /assets/img/Infrastructure-with-Domain-Controller-AD/002.jpg
+image: /assets/img/Infrastructure-with-Domain-Controller-AD/002.webp
 ---
 
 ![](/assets/img/Infrastructure-with-Domain-Controller-AD/001.webp)

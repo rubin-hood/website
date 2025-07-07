@@ -3,7 +3,7 @@ date: 12.03.2025
 layout: post
 title: Lösung für SQL Server Verbindungsprobleme im Netzwerk
 excerpt: Beim Verbindungsversuch von einem Client (z. B. Windows 11) zur SQL Server Instanz RUBINHOOD können Verbindungsfehler auftreten. Fehlermeldungen wie „SQL Server does not exist or access denied“ oder „SQL Server Error 17“ deuten darauf hin, dass der Server nicht erreichbar ist.
-image: /assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/003.jpg
+image: /assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/003.png
 ---
 
 ![](/assets/img/Solution-for-SQL-Server-Connection-Issues-Over-the-Network/003.png)
