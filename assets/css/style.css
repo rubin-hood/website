@@ -259,7 +259,7 @@ main {
 }
 .blog-card .card-img {
   width: 125px;           /* feste Breite */
-  height: 130px;          /* feste Höhe */
+  height: 135px;          /* feste Höhe */
   min-width: 120px;
   min-height: 120px;
   overflow: hidden;       /* Bild schneidet überstehende Teile ab */

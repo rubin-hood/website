@@ -3,7 +3,7 @@ date: 20.04.2025
 layout: post
 title: Beispiel-Serverinfrastruktur – Ein genauer Blick
 excerpt: Im Folgenden werfe ich einen Blick auf einen beispielhaften Netzwerkaufbau in einem Serverraum. Die Konfiguration zeigt, wie verschiedene Server, Speicherlösungen und Netzwerkomponenten miteinander verbunden sind, um eine leistungsfähige Infrastruktur zu bilden. Jede Komponente übernimmt dabei eine bestimmte Rolle.
-image: /assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0018.webp
+image: /assets/img/Example-Server-Infrastructure-Setup-A-Closer-Look/0001.webp
 ---
 
 🚀 **Netzwerkaufbau im Serverraum – Ein praxisnahes Beispiel**
