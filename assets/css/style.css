@@ -258,8 +258,8 @@ main {
   flex: 1;
 }
 .blog-card .card-img {
-  width: 120px;           /* feste Breite */
-  height: 120px;          /* feste Höhe */
+  width: 125px;           /* feste Breite */
+  height: 130px;          /* feste Höhe */
   min-width: 120px;
   min-height: 120px;
   overflow: hidden;       /* Bild schneidet überstehende Teile ab */
