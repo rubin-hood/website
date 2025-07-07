@@ -3,7 +3,7 @@ date: 04.02.2025
 layout: post
 title: RDP-Zugriff per GPO für Windows-Clients einrichten
 excerpt: In einer Windows-Server-Umgebung ist das Remote Desktop Protocol (RDP) aus Sicherheitsgründen standardmäßig deaktiviert. Um RDP-Zugriff für Mitarbeitende mit Windows-Clients zu ermöglichen, müssen die entsprechenden Einstellungen per Gruppenrichtlinie (GPO) in Active Directory (AD) konfiguriert werden.
-image: /assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/023.webp
+image: /assets/img/Setting-up-RDP-access-via-GPO-for-Windows-clients/023.jpg
 ---
 
 In einer Windows-Server-Umgebung ist das Remote Desktop Protocol (RDP) aus Sicherheitsgründen standardmäßig deaktiviert. Um RDP-Zugriff für Mitarbeitende mit Windows-Clients zu ermöglichen, müssen die entsprechenden Einstellungen per Gruppenrichtlinie (GPO) in Active Directory (AD) konfiguriert werden.

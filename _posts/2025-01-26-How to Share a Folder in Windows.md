@@ -3,7 +3,7 @@ date: 26.01.2025
 layout: post
 title: Einen Ordner in Windows freigeben
 excerpt: Einen Ordner in Windows freizugeben ermöglicht es anderen Benutzern im Netzwerk, auf Dateien zuzugreifen oder sie zu bearbeiten. Das ist besonders praktisch in Büro- oder Heimnetzwerken mit mehreren Geräten.
-image: /assets/img/How-to-Share-a-Folder-in-Windows/005.webp
+image: /assets/img/How-to-Share-a-Folder-in-Windows/005.jpg
 ---
 
 ![](/assets/img/How-to-Share-a-Folder-in-Windows/005.png)

@@ -3,7 +3,7 @@ date: 17.01.2025
 layout: post
 title: Active Directory (AD) – Eine Domäne einrichten und einen Client verbinden
 excerpt: Diese Anleitung bietet eine Schritt-für-Schritt-Erklärung zur Einrichtung einer Active-Directory-Umgebung und zum Verbinden eines Windows-10-Clients mit der Domäne.
-image: /assets/img/Active-Directory/022.webp
+image: /assets/img/Active-Directory/022.jpg
 ---
 
 ![](/assets/img/Active-Directory/021.jpg)  

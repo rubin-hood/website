@@ -3,7 +3,7 @@ date: 01.02.2025
 layout: post
 title: Eine neue VM aus Vorlage erstellen (vSphere)
 excerpt: Hier erfährst du, wie du mit vSphere eine neue virtuelle Maschine (VM) aus einer bestehenden Vorlage erstellst.
-image: /assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/001.webp
+image: /assets/img/Deploying-a-Virtual-Machine-from-a-Template-in-vSphere/001.jpg
 ---
 
 Hier erfährst du, wie du mit vSphere eine neue virtuelle Maschine (VM) aus einer bestehenden Vorlage erstellst.

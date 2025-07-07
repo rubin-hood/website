@@ -3,7 +3,7 @@ date: 15.02.2025
 layout: post
 title: So änderst du den Computernamen in Windows Server 2025
 excerpt: Diese Anleitung zeigt dir Schritt für Schritt, wie du den Computernamen in Windows Server 2025 ändern kannst.
-image: /assets/img/Windows-Server-2025-Change-Computer-Name/001.webp
+image: /assets/img/Windows-Server-2025-Change-Computer-Name/001.jpg
 ---
 
 Diese Anleitung zeigt dir Schritt für Schritt, wie du den Computernamen in **Windows Server 2025** ändern kannst.

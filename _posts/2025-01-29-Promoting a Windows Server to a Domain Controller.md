@@ -3,7 +3,7 @@ date: 29.01.2025
 layout: post
 title: Einen Windows Server als Domain Controller einrichten
 excerpt: Diese Anleitung zeigt dir Schritt für Schritt, wie du einen Windows Server als Domain Controller mit Active Directory Domain Services (AD DS) konfigurierst.
-image: /assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.webp
+image: /assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.jpg
 ---
 
 ![](/assets/img/Promoting-a-Windows-Server-to-a-Domain-Controller/011.jpg)  
