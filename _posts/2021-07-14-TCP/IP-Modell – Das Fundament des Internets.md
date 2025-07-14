@@ -67,6 +67,28 @@ WLAN (Wi-Fi), LAN-Kabel, Repeater, WLAN-Router, Switch, Powerline-Adapter, Netzw
 
 ---
 
+🟥 1. Netzzugangsschicht (Network Access Layer)
+Diese Schicht kümmert sich um die physikalische Übertragung der Daten über Kabel oder Funk. Sie arbeitet mit MAC-Adressen, Rahmen (Frames), Bits und Signalen.
+
+📌 Beispiele: LAN-Kabel, WLAN, Switch, Repeater, Antenne, Powerline
+
+🟨 2. Internetschicht (Internet Layer)
+Sie ist für das Routing und die IP-Adressierung zuständig. Sie sorgt dafür, dass Datenpakete ihren Weg über mehrere Zwischenstationen (Multihops) zum Ziel finden.
+
+📌 Beispiele: Router, IP-Adresse, FritzBox, LTE-Router, mobiles Internet
+
+🟩 3. Transportschicht (Transport Layer)
+Hier entstehen Ende-zu-Ende-Verbindungen zwischen Sender und Empfänger. TCP sorgt für zuverlässige Übertragung, UDP für schnelle Verbindungen ohne Absicherung.
+
+📌 Beispiele: Dateiübertragung, Online-Gaming, WhatsApp-Anruf, Zoom-Meeting
+
+🟦 4. Anwendungsschicht (Application Layer)
+Ganz oben sitzt die Schicht, die direkt mit Anwendungen interagiert. Programme wie Chrome, Outlook oder YouTube nutzen hier Protokolle wie HTTP, SMTP oder DNS, um zu kommunizieren.
+
+📌 Beispiele: Chrome, Firefox, Gmail, Dropbox, WhatsApp Web, Spotify, Instagram
+
+---
+
 ## ✅ **Hauptbeispiel: Du rufst [www.rubinhood.de](http://www.rubinhood.de) über WLAN auf**
 
 👉 dabei verwenden wir fast alle Begriffe!
@@ -186,3 +208,107 @@ Das **OSI-Modell** (mit 7 Schichten) wurde ursprünglich als **theoretisches Leh
 - mit nur 4 Schichten **effizienter und klarer strukturiert** ist
 
 Kurz gesagt: **Das OSI-Modell ist gut zum Lernen**, aber **das TCP/IP-Modell wird in der Praxis verwendet** – überall, weltweit.
+
+---
+
+## Protokolle oder Dienste
+
+### 7️⃣ **Anwendungsschicht**
+
+*Hier laufen alle Programme und Dienste, die direkt mit dem Netzwerk arbeiten – also das, was du als Nutzer benutzt.*
+
+- 📞 **DNS**: Wandelt Internet-Namen (wie google.de) in IP-Adressen um, damit Computer sie finden können.
+- 🆔 **DHCP**: Sorgt dafür, dass dein Gerät im Netzwerk automatisch eine IP-Adresse bekommt.
+- 🌍 **HTTP**: Überträgt Webseiten von Servern zu deinem Browser.
+- 🔒🌍 **HTTPS**: Wie HTTP, aber mit verschlüsselter, sicherer Übertragung (nutzt TLS).
+- 📁 **FTP**: Sendet und empfängt Dateien zwischen Computern.
+- 📤 **SMTP**: Schickt E-Mails von deinem Gerät an den Mailserver.
+- 📥 **IMAP**: Lässt dich E-Mails auf dem Server lesen, ohne sie zu löschen.
+- 📬 **POP3**: Holt E-Mails vom Server ab und speichert sie lokal.
+- 🖥️ **SMB**: Macht Dateifreigabe und Drucken im lokalen Netzwerk möglich.
+- 🖥️🔗 **RDP**: Steuert einen anderen PC fern (zeigt dir Bildschirm und Eingaben an).
+- 💬 **IRC**: Ermöglicht Chatten in Echtzeit, oft in Gruppen.
+- 🖧 **SNMP**: Ermöglicht das Überwachen und Steuern von Netzwerkgeräten wie Routern.
+- 🗂️ **LDAP**: Fragt Benutzer- und Geräteinformationen aus einem Verzeichnis ab (z.B. in Firmen).
+- ⏰ **NTP**: Stellt sicher, dass alle Geräte im Netzwerk die gleiche Uhrzeit haben.
+- 🗃️ **DB-Protokolle**: Verbindet Programme mit Datenbanken zum Abrufen oder Speichern von Daten.
+- 🕵️‍♂️ **Whois**: Zeigt dir, wem eine Internet-Domain gehört.
+- 🌍🔠 **TLD**: Die Endung von Internetadressen, zum Beispiel .de oder .com.
+- 🏢 **ICANN**: Die Organisation, die weltweit Internetadressen verwaltet.
+- 🧑‍💻 **Radius**: Meldet dich im Netzwerk an (z.B. beim WLAN in Firmen).
+- 🔑 **TACACS+**: Meldet dich bei Netzwerkgeräten an, besonders in Unternehmen.
+- 📟 **Telnet**: Fernzugriff auf Computer über Textbefehle, aber ohne Verschlüsselung.
+- 🛡️ **TLS**: Verschlüsselt die Kommunikation für mehr Sicherheit (multi).
+- 🖱️🔑 **SSH**: Sicherer Fernzugriff auf einen Computer über Textbefehle (multi).
+- 🎭 **Kerberos**: Sichere Anmeldung bei Diensten und Anwendungen.
+
+---
+
+### 6️⃣ **Darstellungsschicht**
+
+*Hier werden Daten verschlüsselt, entschlüsselt oder in ein anderes Format übersetzt, damit sie richtig angezeigt werden.*
+
+- 🛡️ **TLS**: Verschlüsselt die Daten, damit sie unterwegs nicht gelesen werden können.
+- 🖱️🔑 **SSH**: Verschlüsselt die Steuerung von Computern per Fernzugriff.
+- 🎭 **Kerberos**: Verschlüsselt Anmeldedaten, damit niemand sie mitlesen kann (multi).
+- 🖥️ **SMB**: Übersetzt und bereitet Daten für die Dateiübertragung auf (multi).
+- 🖥️🔗 **RDP**: Wandelt Bild und Ton so um, dass sie über das Netzwerk übertragen werden können (multi).
+
+---
+
+### 5️⃣ **Sitzungsschicht**
+
+*Verwaltet, ob und wie lange eine Verbindung zwischen zwei Geräten besteht – baut die Verbindung auf, hält sie offen und beendet sie wieder.*
+
+- 🎭 **Kerberos**: Sichert, dass deine Anmeldung für die ganze Sitzung gültig bleibt (multi).
+- 🧑‍💻 **Radius**: Hält die Anmeldung im Netzwerk während der gesamten Verbindung aktiv.
+- 🔑 **TACACS+**: Kontrolliert, wie lange du auf Geräte im Netzwerk zugreifen darfst.
+- 🖥️🔗 **RDP**: Steuert die Dauer und Verwaltung der Fernsteuerungs-Sitzung (multi).
+- 📟 **Telnet**: Öffnet eine dauerhafte Verbindung für Textbefehle.
+
+---
+
+### 4️⃣ **Transportschicht**
+
+*Teilt die Daten in kleine Pakete auf, sorgt für die richtige Reihenfolge und stellt sicher, dass alles ankommt.*
+
+- 📦 **TCP**: Sichert, dass Daten fehlerfrei und vollständig ankommen.
+- 📨 **UDP**: Sendet Daten schneller, aber ohne Garantie für den Empfang.
+- 💧 **SCTP**: Besonders für spezielle, sichere oder zeitkritische Datenübertragungen.
+- 🛡️ **TLS**: Verschlüsselt den Datenfluss direkt nach der Aufteilung in Pakete (multi).
+
+---
+
+### 3️⃣ **Vermittlungsschicht**
+
+*Regelt den Weg der Daten durchs Netzwerk, kümmert sich um Adressen und Routing zwischen mehreren Netzwerken.*
+
+- 🌐 **IP**: Gibt jedem Gerät im Internet eine eindeutige Adresse.
+- 🔄 **NAT**: Übersetzt private IP-Adressen ins Internet und zurück.
+- 🛎️ **ICMP**: Überträgt Fehlermeldungen und Testsignale (z.B. für „ping“).
+- 🛡️🔗 **IPsec**: Verschlüsselt ganze Datenpakete, um sie auf ihrem Weg zu schützen.
+- 🔗 **GRE**: Baut Tunnel, um Datenpakete durch fremde Netze zu transportieren.
+
+---
+
+### 2️⃣ **Sicherungsschicht**
+
+*Sorgt dafür, dass Daten sicher und fehlerfrei von einem Gerät zum anderen im selben Netzwerk (z.B. per Kabel oder WLAN) übertragen werden.*
+
+- 🟦 **Ethernet**: Der Standard, wie Daten über Kabel im lokalen Netzwerk laufen.
+- 🏷️ **ARP**: Findet zu einer IP-Adresse die passende Hardware-Adresse (MAC).
+- 🖥️ **SMB**: Macht die direkte Datei- und Druckerfreigabe im lokalen Netz möglich (multi).
+- 🛡️🔗 **IPsec**: Sichert den gesamten Datenstrom im lokalen Netzwerk (multi).
+- 🔗 **GRE**: Baut sichere Tunnel für Daten direkt im lokalen Netz (multi).
+
+---
+
+### 1️⃣ **Bitübertragungsschicht**
+
+*Hier geht es nur noch um die physische Übertragung – wie Bits als elektrische Signale, Licht oder Funkwellen durch Kabel oder Luft gesendet werden.*
+
+- *(Keine eigenen Protokolle, sondern nur die Technik: Kabel, Funk, Stecker, Lichtleiter usw.)*
+
+---
+
+**(multi) = Dieses Protokoll arbeitet auch auf anderen Schichten**
