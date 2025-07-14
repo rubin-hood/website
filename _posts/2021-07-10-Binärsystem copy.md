@@ -2,7 +2,7 @@
 date: 14.07.2021
 layout: post
 title: 🌐 TCP/IP-Modell – Das Fundament des Internets
-excerpt: Wie funktioniert ein Computer eigentlich? Warum reicht ihm ein „An“ oder „Aus“, um Texte, Bilder, Spiele und Musik darzustellen? Die Antwort steckt im Binärsystem. Computer denken nicht wie wir in Zehnerzahlen, sondern in 0 und 1. In diesem Artikel erfährst du verständlich erklärt, was Bit, Byte und Binärzahlen bedeuten – und warum Strom an oder aus die Grundlage der gesamten digitalen Welt ist.
+excerpt: Das TCP/IP-Modell ist das Herzstück der modernen digitalen Kommunikation. Egal ob du eine Webseite aufrufst, eine E-Mail verschickst oder Musik streamst – im Hintergrund sorgt dieses Modell dafür, dass deine Daten zuverlässig und sicher ihr Ziel erreichen.
 image: /assets/img/Binary/001.webp
 ---
 
