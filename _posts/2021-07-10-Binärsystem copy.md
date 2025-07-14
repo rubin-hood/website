@@ -2,13 +2,17 @@
 date: 14.07.2021
 layout: post
 title: 🌐 TCP/IP-Modell – Das Fundament des Internets
-excerpt: Das TCP/IP-Modell ist das Herzstück der modernen digitalen Kommunikation. Egal ob du eine Webseite aufrufst, eine E-Mail verschickst oder Musik streamst – im Hintergrund sorgt dieses Modell dafür, dass deine Daten zuverlässig und sicher ihr Ziel erreichen.
-image: /assets/img/Binary/001.webp
+excerpt: Stell dir vor, du schreibst einen Brief, legst ihn in einen Umschlag, bringst ihn zur Post – und Tage später landet er beim Empfänger. Genauso reisen auch Daten im Internet: Sie werden verpackt, adressiert, weitergeleitet – Schicht für Schicht.
+image: /assets/img/TCP-IP-Modell/001.webp
 ---
 
-![](/assets/img/BiTCP-IP-Modell/001.webp)
+![](/assets/img/TCP-IP-Modell/001.webp)
 
-Das **TCP/IP-Modell** ist die Grundlage der modernen digitalen Kommunikation. Ob du im Internet surfst, eine E-Mail verschickst oder ein Video-Call führst – hinter all dem steckt dieses Modell. Es beschreibt, **wie Daten zuverlässig von einem Gerät zum anderen** gelangen – weltweit, in Sekundenbruchteilen.
+Stell dir vor, du schreibst einen Brief, legst ihn in einen Umschlag, bringst ihn zur Post – und Tage später landet er beim Empfänger.
+
+Genauso reisen auch Daten im Internet: Sie werden verpackt, adressiert, weitergeleitet – Schicht für Schicht.
+
+**Das TCP/IP-Modell erklärt genau diesen digitalen Postweg.**
 
 ---
 
