@@ -1,126 +1,184 @@
 ---
 date: 14.07.2021
 layout: post
-title: OSI-Modell und TCP/IP-Modell
+title: 🌐 TCP/IP-Modell – Das Fundament des Internets
 excerpt: Wie funktioniert ein Computer eigentlich? Warum reicht ihm ein „An“ oder „Aus“, um Texte, Bilder, Spiele und Musik darzustellen? Die Antwort steckt im Binärsystem. Computer denken nicht wie wir in Zehnerzahlen, sondern in 0 und 1. In diesem Artikel erfährst du verständlich erklärt, was Bit, Byte und Binärzahlen bedeuten – und warum Strom an oder aus die Grundlage der gesamten digitalen Welt ist.
 image: /assets/img/Binary/001.webp
 ---
 
-![](/assets/img/Binary/001.webp)
+![](/assets/img/BiTCP-IP-Modell/001.webp)
 
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <title>OSI- & TCP/IP-Modell Diagramm</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      padding: 20px;
-    }
-    .layer {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1.5fr 1fr 1fr;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      padding: 10px;
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .layer:nth-child(even) {
-      background: #f0f0f0;
-    }
-    .label {
-      font-weight: bold;
-    }
-    .icon {
-      margin-right: 5px;
-    }
-    .title {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-    .header {
-      font-weight: bold;
-      background: #e0e0e0;
-      border-radius: 10px 10px 0 0;
-    }
-  </style>
-</head>
-<body>
-  <div class="title">📊 OSI- & TCP/IP-Modell – Diagramm</div>
-  <div class="layer header">
-    <div>🧱 OSI-Schicht</div>
-    <div>🧭 Einordnung</div>
-    <div>🛰️ TCP/IP-Modell</div>
-    <div>📡 Protokolle</div>
-    <div>📦 Einheiten</div>
-    <div>🔌 Kopplung</div>
-  </div>
+Das **TCP/IP-Modell** ist die Grundlage der modernen digitalen Kommunikation. Ob du im Internet surfst, eine E-Mail verschickst oder ein Video-Call führst – hinter all dem steckt dieses Modell. Es beschreibt, **wie Daten zuverlässig von einem Gerät zum anderen** gelangen – weltweit, in Sekundenbruchteilen.
 
-  <div class="layer">
-    <div>7️⃣ Anwendung</div>
-    <div>🖥️ Anwendungsorientiert</div>
-    <div>🌍 Anwendung</div>
-    <div>🌐 DHCP, DNS, FTP, HTTP, HTTPS, LDAP, MQTT, NCP, RTP, SMTP, XMPP</div>
-    <div>💾 Daten</div>
-    <div>🌉 Gateway, Proxy, Layer-4-7-Switch</div>
-  </div>
+---
 
-  <div class="layer">
-    <div>6️⃣ Darstellung</div>
-    <div>🖥️ Anwendungsorientiert</div>
-    <div>🌍 Anwendung</div>
-    <div>🎨 (Siehe Anwendung)</div>
-    <div>💾 Daten</div>
-    <div>🔄 (Siehe Anwendung)</div>
-  </div>
+## 📦 Was ist das TCP/IP-Modell?
 
-  <div class="layer">
-    <div>5️⃣ Sitzung</div>
-    <div>🖥️ Anwendungsorientiert</div>
-    <div>🌍 Anwendung</div>
-    <div>📅 (Siehe Anwendung)</div>
-    <div>💾 Daten</div>
-    <div>🔄 (Siehe Anwendung)</div>
-  </div>
+Das TCP/IP-Modell besteht aus **vier Schichten**, die jeweils eine bestimmte Aufgabe bei der Datenübertragung übernehmen. Jede Schicht baut auf der darunterliegenden auf – wie bei einem Postsystem: vom Schreiben des Briefs bis zur Zustellung an die Haustür.
 
-  <div class="layer">
-    <div>4️⃣ Transport</div>
-    <div>🚛 Transportorientiert</div>
-    <div>🚚 Transport</div>
-    <div>🔁 TCP, UDP, SCTP, SPX</div>
-    <div>📦 Segmente / Datagramme</div>
-    <div>–</div>
-  </div>
+---
 
-  <div class="layer">
-    <div>3️⃣ Netzwerk</div>
-    <div>🚛 Transportorientiert</div>
-    <div>🌐 Internet</div>
-    <div>🛰️ IP, ICMP, IGMP, IPsec, IPX</div>
-    <div>📦 Pakete</div>
-    <div>📡 Router, L3-Switch</div>
-  </div>
+## 🟦 **4. Anwendungsschicht (Application Layer)**
 
-  <div class="layer">
-    <div>2️⃣ Sicherung</div>
-    <div>🔌 Transportorientiert</div>
-    <div>🔗 Netzzugriff</div>
-    <div>📶 Ethernet, WLAN, MAC, FDDI, Token Ring</div>
-    <div>📃 Frames</div>
-    <div>🧱 Bridge, L2-Switch</div>
-  </div>
+- **7️⃣ Anwendung (Application)**
+- **6️⃣ Darstellung (Presentation)**
+- **5️⃣ Sitzung (Session)**
 
-  <div class="layer">
-    <div>1️⃣ Bitübertragung</div>
-    <div>🔌 Transportorientiert</div>
-    <div>🔗 Netzzugriff</div>
-    <div>⚡ 1000BASE-T, Token Ring</div>
-    <div>🧿 Bits / Symbole</div>
-    <div>🧵 Kabel, Repeater, Hub</div>
-  </div>
-</body>
-</html>
+📡 DHCP  🌐 DNS  📁 FTP  🌍 HTTP  🔒 HTTPS  🧾 LDAP  📶 MQTT  🔗 NCP  🎥 RTP  ✉️ SMTP  💬 XMPP
+
+🧾 **Daten**, 🛡️ **Proxy**, 🔁 **Gateway**, 🎯 **Content-Switch**, 🧠 **Layer-4-7-Switch**
+
+Chrome, Firefox, Safari, Edge, Outlook, Gmail, Dropbox, YouTube, WhatsApp Web, Zoom, Teams, Google Drive, Instagram
+
+---
+
+## 🟩 **3. Transport (Transport Layer)**
+
+- **4️⃣ Transport (Transport)** 🔌 TCP 📤 UDP 🔁 SCTP 🧩 SPX
+
+🔌 **TCP = Segmente**, 📤 **UDP = Datagramme**
+
+Datei-Upload, Videoanruf, Online-Gaming, Live-Streams, WhatsApp-Anruf, Cloud-Backup, Login-Vorgang, Punkt-zu-Punkt-Kommunikation
+
+---
+
+## 🟨 **2. Internet (Network Layer)**
+
+- **3️⃣ Vermittlung-/Paket (Network)** 📡 ICMP 👥 IGMP 🧭 IP 🛡️ IPsec 🔀 IPX
+
+🧭 **Pakete**, 🌐 **Router**, 🎛️ **Layer-3-Switch**
+
+FritzBox, Vodafone Station, Speedport, Handy-Hotspot, WLAN im ICE, LTE/5G-Router, mobiles Internet, Starlink, Internet im Bus
+
+---
+
+## 🟥 **1. Netzzugriff (Network Access Layer)**
+
+- **2️⃣ Sicherung (Data Link)** 🔌 IEEE 802.3 Ethernet 📶 IEEE 802.11 WLAN 🛰️ TLAP 💡 FDDI 🧷 MAC        🔄 Token Ring 🧮 ARCNET
+- **1️⃣ Bitübertragung (Physical)** ⚙️ 1000BASE-T 🔄 Token Ring 🧮 ARCNET
+
+🧱 **Rahmen (Frames)**, 🧿 **Bits**, 🧬 **Symbole**, 🧷 **Bridge**, 🧩 **Switch**, 📶 **WAP**, 📡 **Repeater**, 🧃 **Hub**, 📡 **Antenne**, 🧵 **Netzwerkkabel**, ☁️ **Äther**
+
+WLAN (Wi-Fi), LAN-Kabel, Repeater, WLAN-Router, Switch, Powerline-Adapter, Netzwerkdose, USB-WLAN-Stick, Handy-Antenne, Funkwellen, Luft (Äther)
+
+---
+
+## ✅ **Hauptbeispiel: Du rufst [www.rubinhood.de](http://www.rubinhood.de) über WLAN auf**
+
+👉 dabei verwenden wir fast alle Begriffe!
+
+---
+
+### 📍 **Ausgangslage:**
+
+Du sitzt mit deinem **Laptop zu Hause**, verbunden über **WLAN** (also drahtlos).
+
+Du öffnest den Browser und gibst **www.rubinhood.de** ein.
+
+Im Hintergrund läuft eine Verbindung über mehrere Netzwerke bis zum Webserver.
+
+---
+
+### 🔁 **Ende-zu-Ende-Kommunikation (Multihop)**
+
+- Dein Laptop ist der **Client**, der **www.rubinhood.de** ist der **Server** → **Ende zu Ende**.
+- Die Daten durchlaufen mehrere Geräte (Router, Switches) → **Multihop** (also viele "Sprünge").
+
+---
+
+### 🧱 **Schicht für Schicht + Begriffe im Beispiel**
+
+---
+
+### 🟥 **Physikalische Übertragung (Layer 1)**
+
+| Begriff | Beispiel |
+| --- | --- |
+| **Bits, Symbole** | Dein WLAN-Adapter wandelt die Daten in **elektromagnetische Wellen** um. Diese bestehen aus **Bits** (0 und 1), die als **Symbole** auf einem Träger (z. B. 2,4 GHz) übertragen werden. |
+| **Antenne & Äther** | Die Antenne deines Laptops sendet die Daten **drahtlos durch die Luft (Äther)** zum WLAN-Router. |
+| **Netzwerkkabel** | Vom WLAN-Router führen **Kabel** zu einem **Switch oder Router**. |
+| **Repeater** | Wenn das WLAN-Signal zu schwach ist, hilft ein **Repeater**, es zu verstärken. |
+| **Hub** | (veraltet) Früher hätte ein **Hub** die Signale an **alle Geräte gleichzeitig** geschickt – ohne Intelligenz. |
+
+---
+
+### 🟥 **Datenverbindung (Layer 2)**
+
+| Begriff | Beispiel |
+| --- | --- |
+| **Rahmen (Frames)** | Die Daten werden in **Ethernet-Frames** gepackt (mit MAC-Adresse etc.). |
+| **Wireless Access Point (WAP)** | Das WLAN-Signal wird vom **WAP empfangen** und in Ethernet umgewandelt. |
+| **Layer-2-Switch / Bridge** | Der **Switch erkennt anhand der MAC-Adresse**, wohin der Frame muss. |
+| **Bridge** | (alt) Wenn zwei unterschiedliche Netztypen verbunden werden (z. B. WLAN ↔ Ethernet). |
+
+---
+
+### 🟨 **Vermittlung (Layer 3)**
+
+| Begriff | Beispiel |
+| --- | --- |
+| **Pakete** | Die IP-Schicht verpackt die Daten in **Pakete** mit IP-Adresse von dir und www.rubinhood.de. |
+| **Router** | Dein **Router prüft die Ziel-IP** (z. B. die von www.rubinhood.de) und leitet das Paket ins Internet. |
+| **Layer-3-Switch** | In großen Netzen übernimmt dieser Switch zusätzlich Routing-Aufgaben. |
+
+---
+
+### 🟩 **Transport (Layer 4)**
+
+| Begriff | Beispiel |
+| --- | --- |
+| **TCP = Segmente** | Da HTTPS verwendet wird, wird TCP eingesetzt → Die Daten werden in **TCP-Segmente** aufgeteilt. |
+| **UDP = Datagramme** | Wenn du z. B. **Videos auf rubinhood.de streamst**, könnte UDP verwendet werden → **Datagramme**. |
+| **Punkt zu Punkt** | Zwischen deinem Gerät und dem Server besteht eine **logische Verbindung (z. B. TCP Socket)** → **Punkt zu Punkt**. |
+
+---
+
+### 🟦 **Anwendung (Layer 5–7)**
+
+| Begriff | Beispiel |
+| --- | --- |
+| **Daten** | Die tatsächlichen Nutzdaten sind z. B. HTML, CSS, Bilder – das, was die Webseite ausmacht. |
+| **Proxy** | Ein **Proxy-Server** (z. B. im Schulnetz) könnte deine Anfrage **prüfen oder blockieren**. |
+| **Gateway** | Ein **Gateway** wäre nötig, wenn das Netzwerk z. B. IPv6 spricht, aber der Server IPv4. |
+| **Content-Switch / Layer-4-7-Switch** | Bei großen Webdiensten: Solch ein Switch **entscheidet, ob du z. B. Server 1 (für DE) oder Server 2 (für AT)** bekommst – basierend auf dem Inhalt (Layer 7). |
+
+---
+
+## 🧠 Zweites Mini-Beispiel (nur für Begriffe, die oben fehlten)
+
+Einige Begriffe werden in einem typischen Surf-Beispiel **nicht immer verwendet**. Hier ist ein ergänzendes Beispiel:
+
+---
+
+### 📞 **Beispiel 2: Du telefonierst per VoIP (z. B. Zoom)**
+
+- **UDP = Datagramme** → wird bei Live-Sprachdaten verwendet (weil Geschwindigkeit wichtiger ist als 100 % Korrektheit).
+- **Gateway** → Übersetzt zwischen VoIP-Protokollen und klassischen Telefonsystemen.
+- **Content-Switch** → Leitet Voice-Traffic an den richtigen Mediaserver.
+
+---
+
+## ✅ Fazit – Begriffe und wo sie verwendet werden:
+
+| Kategorie | Begriffe |
+| --- | --- |
+| **Anwendung (Daten)** | Daten, Proxy, Gateway, Content-Switch, Layer-4-7-Switch |
+| **Transport (Verbindung)** | TCP = Segmente, UDP = Datagramme, Punkt zu Punkt |
+| **Internet (Routing)** | Pakete, Router, Layer-3-Switch |
+| **Netzzugang (Übertragung)** | Rahmen (Frames), Bits, Symbole, Bridge, Switch, WAP, Repeater, Hub, Antenne, Netzwerkkabel, Äther |
+| **Verbindungsart** | Ende zu Ende, Multihop |
+
+---
+
+## ❓ Warum nicht das OSI-Modell?
+
+Das **OSI-Modell** (mit 7 Schichten) wurde ursprünglich als **theoretisches Lehrmodell** entwickelt, um Netzwerkkommunikation besser zu verstehen. Es ist sehr genau, aber **zu komplex und praxisfern**.
+
+➡️ In der Realität hat sich das **TCP/IP-Modell durchgesetzt**, weil es:
+
+- **einfacher und praxisorientiert** ist
+- direkt auf den Aufbau des Internets abgestimmt wurde
+- **von Anfang an in echten Netzwerken** wie ARPANET und später dem Internet verwendet wurde
+- mit nur 4 Schichten **effizienter und klarer strukturiert** ist
+
+Kurz gesagt: **Das OSI-Modell ist gut zum Lernen**, aber **das TCP/IP-Modell wird in der Praxis verwendet** – überall, weltweit.
