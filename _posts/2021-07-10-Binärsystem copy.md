@@ -3,7 +3,7 @@ date: 14.07.2021
 layout: post
 title: 🌐 TCP/IP-Modell – Das Fundament des Internets
 excerpt: Stell dir vor, du schreibst einen Brief, legst ihn in einen Umschlag, bringst ihn zur Post – und Tage später landet er beim Empfänger. Genauso reisen auch Daten im Internet: Sie werden verpackt, adressiert, weitergeleitet – Schicht für Schicht.
-image: /assets/img/TCP-IP-Modell/001.webp
+image: /assets/img/TCP-IP-Modell/001.png
 ---
 
 ![](/assets/img/TCP-IP-Modell/001.webp)
