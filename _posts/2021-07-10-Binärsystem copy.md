@@ -6,7 +6,7 @@ excerpt: Stell dir vor, du schreibst einen Brief, legst ihn in einen Umschlag, b
 image: /assets/img/TCP-IP-Modell/001.png
 ---
 
-![](/assets/img/TCP-IP-Modell/001.swg)
+![](/assets/img/TCP-IP-Modell/001.svg)
 
 Stell dir vor, du schreibst einen Brief, legst ihn in einen Umschlag, bringst ihn zur Post – und Tage später landet er beim Empfänger.
 
