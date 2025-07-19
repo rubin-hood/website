@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>{{ page.title }} | {{ site.title }}</title>
 
-  <!-- Basis-URL für alle relativen Links -->
-  <base href="{{ site.baseurl }}/">
-
-  <!-- Favicon und Stylesheet -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Favicon und CSS über site.baseurl -->
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
   {% include header.html %}
@@ -23,7 +20,7 @@
 
   {% include footer.html %}
 
-  <!-- JavaScript -->
-  <script src="assets/js/main.js"></script>
+  <!-- JavaScript mit baseurl -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>
