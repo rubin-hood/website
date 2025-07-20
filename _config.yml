@@ -1,7 +1,7 @@
 title: Rubin Hood
 description: Minimalistischer Jekyll-Blog
-baseurl: "/website"
-url: "https://rubin-hood.github.io"          # Das ist okay, solange baseurl gesetzt ist!
+baseurl: ""
+url: "https://rubin-hood.com"          # Das ist okay, solange baseurl gesetzt ist!
 permalink: /:year/:month/:day/:title.html
 theme: null
 exclude: [Gemfile, Gemfile.lock, node_modules, vendor]
